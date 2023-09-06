@@ -1,1 +1,573 @@
+1. Write a program that reads from stdin an integer n. You have to print the numbers 1 to n, each being printed 3 times.
+
+Example, if n is 4, then print:
+
+1 1 1
+2 2 2
+3 3 3
+4 4 4
+Input format: The first line contains the number of inputs. The lines after that contain a different values for n
+
+TEST CASES:
+---------------------------
+Example Input:
+3
+4
+2
+1
+Output:
+1 1 1
+2 2 2
+3 3 3
+4 4 4
+1 1 1
+2 2 2
+1 1 1
+
+Explanation:
+
+3 is the number of inputs
+The first input is 4: we print 4 rows and 3 columns
+The next input is 2: we print 2 rows and 3 columns
+The last input is 1: we print 1 row and 3 columns
+
+PROGRAM:
+----------------------
+n=int(input())
+while(n>0):
+    r=int(input())
+    for i in range(1,r+1):
+        for j in range(3):
+            print(i,end=" ")
+        print()    
+    n=n-1        
+
+2. Write a program that reads from stdin an integer n and an integer k. You have to print the numbers 1 to n, each being printed k times.
+
+Example, if n is 4 and k is 2 then print:
+
+1 1 
+2 2 
+3 3 
+4 4 
+Input format:
+
+First line contains n
+Next line contains k
+
+TEST CASES:
+------------------
+Example Input:
+4
+2
+Output:
+1 1
+2 2
+3 3
+4 4
+
+Example Input:
+2
+10
+Output:
+1 1 1 1 1 1 1 1 1 1
+2 2 2 2 2 2 2 2 2 2
+
+PROGRAM:
+---------------------
+n=int(input())
+k=int(input())
+for i in range(1,n+1):
+    for j in range(k):
+        print(i,end=" ")
+    print()    
+
+3. Write a program that prints a simple chessboard. You have to read the the size of the chessboard from stdin. Print W for white spaces and B for black spaces.
+
+Input format: size of the chessboard is given
+
+TEST CASES:
+-----------------------
+Example Input:
+3
+Output:
+WBW
+BWB
+WBW
+
+Input:
+5
+
+Output:
+
+WBWBW
+BWBWB
+WBWBW
+BWBWB
+WBWBW
+
+PROGRAM:
+---------------------
+n=int(input())
+for i in range(1,n+1):
+    for j in range(1,n+1):
+        if(i%2==1):
+            if(j%2==1):
+                print("W",end="")
+            else:
+                print("B",end="")
+        else: 
+            if(j%2==1):
+                print("B",end="")
+            else:
+                print("W",end="")
+    print()           
+
+
+4. Let's print a chessboard!
+
+Complete the given method solve that takes 2 parameters:
+
+An integer N. This is size of the chessboard
+A string which has either W or B, i.e, the starting alphabet of our chessboard
+
+TEST CASES:
+-------------------------
+Example Input: 2 W
+Output:
+WB
+BW
+Example Input: 3 B
+BWB
+WBW
+BWB
+
+PROGRAM:
+-----------------
+def solve(n,character):
+    # write your code from here
+    if(character=='B'):
+        oth='W'
+    else:
+        oth='B'
+    
+    for i in range(1,n+1):
+        for j in range(1,n+1):
+            if(i%2==1):
+                if(j%2==1):
+                    print(character,end="")
+                else:
+                    print(oth,end="")
+            else: 
+                if(j%2==1):
+                    print(oth,end="")
+                else:
+                    print(character,end="")
+        print()           
+
+5. Write a program that reads an input n from stdin. n tells us the number of rows to be printed. Print the pattern as per the given examples.
+
+Input format: Read the value of n
+
+
+TEST CASES:
+----------------------
+Example Input:
+3
+Output:
+
+1
+1 2
+1 2 3
+Input:
+5
+Output:
+
+1
+1 2
+1 2 3
+1 2 3 4 
+1 2 3 4 5
+
+PROGRAM:
+--------------------
+n=int(input())
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+
+6. Write a program that reads an input n from stdin. n tells us the number of rows to be printed. Print the pattern as per the given examples.
+
+Input format: Read the value for n
+
+TEST CASES:
+---------------------
+Example Input:
+3
+Output:
+
+3
+3 2
+3 2 1
+Input:
+5
+Output:
+
+5
+5 4
+5 4 3
+5 4 3 2
+5 4 3 2 1
+
+PROGRAM:
+-------------------
+n=int(input())
+for i in range(0,n):
+    k=n
+    for j in range(0,i+1):
+        print(k,end=" ")
+        k=k-1
+    print()
+
+7. Write a program that reads an input n from stdin. n tells us the number of rows to be printed. Print the pattern as per the given examples.
+
+Input format: Read the value for n
+
+
+TEST CASES:
+---------------------
+Example Input:
+3
+Output:
+
+1
+2 2
+3 3 3
+Example Input:
+5
+Output:
+
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+
+PROGRAM:
+--------------------
+n=int(input())
+for i in range (1,n+1):
+    for j in range(0,i):
+        print(i,end=" ")
+    print() 
+
+8. Complete the given method solve that takes as parameter an integer n and creates an nxn triangular pattern like the examples below.
+
+TEST CASES:
+--------------------
+Example Input: 3
+Example Output:
+
+***
+.**
+..*
+Example Input: 5
+Example Output:
+
+*****
+.****
+..***
+...**
+....*
+
+PROGRAM:
+--------------------
+def solve(n):
+    # write your code here
+    for i in range(n):
+        for j in range(n):
+            if(j<i):
+                print(".",end="")
+            else:
+                print("*",end="")
+        print()       
+
+9. Write a program that reads an input n from stdin. n tells us the number of rows to be printed. Print the pattern as per the given examples.
+
+Input format: The first line contains the number of inputs. The lines after that contain a different values for n
+
+Note: You have to write the entire program and not just the single function!
+
+
+TEST CASES:
+----------------------
+Example Input:
+2
+3
+5
+
+Output:
+A
+BB
+CCC
+A
+BB
+CCC
+DDDD
+EEEEE
+
+PROGRAM:
+--------------------
+n=int(input())
+while(n>0):
+    rows=int(input())
+    ascii_number = 65
+    for i in range(0, rows):
+        for j in range(0, i + 1):
+            character = chr(ascii_number)
+            print(character, end='')
+        ascii_number += 1
+        print()
+    n=n-1    
+
+10. Complete the given method solve that takes as parameter an integer n and prints a formation like the examples below.
+
+Hint: Is there a relation between row number and the number of *? What about row number and number of .?
+
+TEST CASES:
+---------------------
+Example Input: 1
+Example Output:
+
+*.*
+***
+*.*
+Example Input: 5
+Example Output:
+
+*.........*
+**.......**
+***.....***
+****...****
+*****.*****
+***********
+*****.*****
+****...****
+***.....***
+**.......**
+*.........*
+
+PROGRAM:
+------------------------
+def solve(n):
+    # write your code here
+    cols = 2*n+1
+    for i in range(1,n+1):
+        for j in range(1,cols+1):
+            if(j<=i or j>=cols-i+1):
+                print("*",end='')
+            else:
+                print (".",end='')
+        print()
+    cols = 2*n+1
+    for i in range(1,cols+1):
+        print('*',end="")
+    print()    
+    for i in range(n,0,-1):
+        for j in range(cols,0,-1):
+            if(j<=i or j>=cols-i+1):
+                print("*",end='')
+            else:
+                print (".",end='')
+        print()
+
+11. Complete the given method solve that takes as parameter an integer n and prints a diamond like the examples below.
+
+Hint: How many rows are there for a number n? How many columns? How many . on each row? How many * on each row?
+
+
+TEST CASES:
+-------------------
+Example Input: 4
+Output:
+
+....*....
+...***...
+..*****..
+.*******.
+*********
+.*******.
+..*****..
+...***...
+....*....
+Example Input: 2
+Output:
+
+..*..
+.***.
+*****
+.***.
+..*..
+
+PROGRAM:
+------------------------------
+def solve(n):
+    h=n
+    
+    # write your code here
+    for x in range(h+1):
+        print("." * (h - x), "*" * (2*x + 1),"." * (h - x))
+    for x in range(h - 1, -1, -1):
+        print("." * (h - x), "*" * (2*x + 1),"." * (h - x))
+
+12. Complete the given method solve that takes as parameter an integer n and prints the nth prime number.
+
+Example, the first prime number is 2. The next prime number: 3. The 7th prime number is 17
+
+TEST CASES:
+-----------------
+Example Input: 1
+Output: 2
+Example Input: 3
+Output: 5
+Example Input: 7
+Output: 17
+
+PROGRAM:
+----------------
+def solve(n):
+    # write your code here
+    if(n==1):
+        print(2)
+    elif(n==2):
+        print(3)
+    else:
+        count=2
+        i=3
+        while(count<=n):
+            if(checkprime(i)):
+                count=count+1
+            i=i+1
+    print(i-1)   
+def checkprime(num):
+    for i in range(2,num//2 +1):
+        if(num%i==0):
+            return False
+    return True
+
+13. Complete the given method solve that takes as parameter a positive integer n and prints all the prime factors of the number n.
+
+2 has only 1 prime factor: 2. However, for 63 there are 3 3 7
+
+Note : Number will always greater than 1
+
+TEST CASES:
+--------------------
+Example Input: 6
+Output: 2 3
+Example Input: 27
+Output: 3 3 3
+Example Input: 321
+Output: 3 107
+
+PROGRAM:
+---------------------
+import math
+def solve(n):
+    # write your code here
+    while n % 2 == 0:
+        print(2,end=" ")
+        n = n // 2
+
+
+14. Given a number n, Complete the given method solve to print right angled number triangle, as given below.
+
+Hera each line contains n-i+1 numbers, where n is the number of rows and i is the row number. The first number of first line is 1.
+
+Print in an increasing order. Reset the order once you reach 9 and then start from 1 again.
+
+The function takes as parameter only 1 integer, n.
+
+TEST CASES:
+-----------------------
+Example Input: 3
+Example Output:
+
+123
+45
+6
+Example Input: 5
+Example Output:
+
+12345
+6789
+123
+45
+6
+
+PROGRAM:
+----------------------
+def solve(n):
+    # write your code here
+    k=1
+    for i in range(n,-1,-1):
+        for j in range(0,i):
+            print(k,end="")
+            k=k+1
+            if(k>9):
+                k=1
+        print()
+
+15. Complete the given method solve that takes as parameter an integer n and prints the pattern as follows.
+
+Note: the pattern for 0 is xx
+
+TEST CASES:
+---------------
+Example Input: 135
+Example Output:
+xx1
+xxxxx3
+xxxxxxxxxxx5
+Example Input: 127
+Example Output:
+xx1
+xxx2
+xxxxxxxxxxxxxxxxx7
+Example Input: 101
+Example Output:
+xx1
+xx0
+xx1
+
+PROGRAM:
+-----------------------
+def nthPrime(k):
+    primes = []
+    n = 1000005
+    prime = [True for i in range(n + 1)]
+     
+    p = 2
+    while (p * p <= n):
+        if (prime[p] == True):
+               
+            for i in range(p * p, n + 1, p):
+                prime[i] = False           
+        p += 1
+      
+    for p in range(2, n + 1):
+        if prime[p]:
+            primes.append(p)
+    
+    return primes[k-1]
+            
+def solve(n):
+    arr = list(str(n))
+    for i in arr:
+        i = int(i)
+        if i == 0 or i == 1:
+            print(('x' * 2) + str(i))
+        else:
+            print(('x' * nthPrime(i)) + str(i))
 
