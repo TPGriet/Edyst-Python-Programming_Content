@@ -1,1 +1,328 @@
+1. Complete the given method solve which accepts as parameter a list A and a variable called element
 
+You must return a new list with the element added to the end of the list A
+
+TEST CASES:
+--------------------
+Example Input:
+1 2 3 4
+10
+
+Output:
+1 2 3 4 10
+
+Example Input:
+93 a True hello
+25
+
+Output:
+93 a True hello 25
+
+PROGRAM:
+---------------------
+def solve(A,element):
+    # write your code here
+    A.append(element)
+    return(A)
+
+2. Jim has a list of dishes that he loves. He has stored them in jim_dishes.
+
+After marrying Pam, he also likes all her dishes, which are stored in pam_dishes.
+
+Complete the given method solve, that will add all of Pam's dishes to Jim's dishes and will return the modified version of jim_dishes
+
+TEST CASES:
+----------------------
+Example Input:
+chocolates salads
+sandwiches
+
+Output:
+chocolates salads sandwiches
+
+PROGRAM:
+---------------------
+def solve(jim_dishes,pam_dishes):
+    # write your code here
+    jim_dishes.extend(pam_dishes)
+    return(jim_dishes)
+
+3. Dwight has infiltrated Jim's dishes. He has added pudding somewhere in jim_dishes and Jim hates pudding.
+
+Complete the given method solve by removing pudding from the list jim_dishes
+
+You must return jim_dishes after modifying it.
+
+TEST CASES:
+--------------------
+Example Input:
+chocolates watermelon pudding avocado juice
+
+Output:
+chocolates watermelon avocado juice
+
+PROGRAM:
+---------------------
+def solve(jim_dishes):
+    # write your code here
+    jim_dishes.remove('pudding')
+    return(jim_dishes)
+
+4. Jim has inserted fake names into the sales list. We don't know which name is fake, but we know that it is the 3 name from the end.
+
+Complete the given method solve which takes as parameter sales_list. You have to remove the fake names and return the fixed list.
+
+TEST CASES:
+--------------------
+Example Input:
+Jake Hank Tom Angela Michael
+
+Output:
+Jake Hank Angela Michael
+
+PROGRAM:
+------------------
+def solve(sales_list):
+    # write your code here
+    sales_list.pop(-3)
+    return(sales_list)
+
+5. Given a list of integers, Stanley wants to insert a new integer into the list in a very different way. The new integer's value is same as the first value of the list, and it's index is also same as the first value.
+
+Example, in a list [3, 1, 0, 2], Stanley will insert 3 and make the new list like this: [3, 1, 0, 3, 2]
+
+Complete the method solve that takes as parameter a list and returns a new list as per Stanley's requirement.
+
+TEST CASES:
+--------------------
+Example Input:
+0 2 1
+
+Output:
+0 0 2 1
+
+Note: the first value will always be < length of list
+
+PROGRAM:
+---------------------------
+def solve(stanley_list):
+    # write your code here
+    stanley_list.insert(stanley_list[0],stanley_list[0])
+    return(stanley_list)
+
+6. Given a list of numbers, this is how Andy like to slice it:
+
+If the length of the list is even, extract the n elements from the start
+If the length of the list is odd, extract n elements from the end
+Here, n denoted the half of the length of the given list.
+
+Complete the given method solve, which accepts as parameter a list and returns new list with the desired slice
+
+TEST CASES:
+--------------------
+Example Input:
+1 2 3 4
+
+Output:
+1 2
+
+Example Input:
+1 2 3 4 5
+
+Output:
+4 5
+
+PROGRAM:
+----------------
+def solve(Andy_list):
+    # write your code here
+    n=len(Andy_list)
+    if(n%2==0):
+        return(Andy_list[:(n//2)])
+    else:
+        return(Andy_list[(n//2)+1:])
+
+7. Dwight has given you a list with some integers. In this list, there is a bad series.
+
+The bad series starts from the beginning and spans up till the A[0]th index.
+
+Example:
+
+for [1,0,4,7] the bad series is [1,0]
+spanning up till 1st index
+Therefore, the desired list is [4, 7]
+for [2,1,5,8,9], the bad series is [2,1,5]
+spanning up till the 2nd index
+Therefor, the desired list is [8,9]
+Complete the given method solve which takes as parameter a list A and returns A such that the bad series is removed
+
+PROGRAM:
+------------------------------
+def solve(A):
+    # write your code here
+    del A[:A[0]+1]
+    return(A)
+
+8. Given a list, Stanley wants to sprinkle it with the numbers: 2, 19 and 8
+
+He wants to insert the elements at the 3rd, 5th and 8th position respectively.
+
+For example, when the list [10, 3, 7, 25, 32, 4, 0, 1, 15] is sprinkled, the resultant list becomes: [10, 3, 2, 7, 19, 25, 32, 8, 4, 0 , 1, 15]
+
+Complete the given method solve which accepts as parameter a list A and returns the modified list.
+
+PROGRAM:
+-------------------
+def solve(A):
+    # write your code here
+    A.insert(2,2)
+    A.insert(4,19)
+    A.insert(7,8)
+    return(A)
+
+9. Weeds have started growing on Schrute farm. They grow particularly on the 2nd, 5th and 9th position.
+
+Complete the given method solve which takes as parameter list of all the plants ids. You must remove the weeds and return the modified list.
+
+TEST CASES:
+----------------------
+Example Input:
+13 23 64 22 43 41 1 6 42 45 22 88
+
+Output:
+13 64 22 41 1 6 45 22 88
+
+PROGRAM:
+---------------------
+def solve(A):
+    # write your code here
+    del A[1]
+    del A[3]
+    del A[6]
+    return(A)
+
+10. Complete the given method solve which takes as parameter a list called A
+
+You have to print the maximum element and the sum of the given list.
+
+TEST CASES:
+----------------
+Example Input:
+10 -9 0 5 17 8 23
+
+Output:
+Maximum: 23
+Sum: 54
+
+PROGRAM:
+-----------------------
+def solve(A):
+    # write your code here
+    print("Maximum:{0}".format(max(A)))
+    print("Sum:{0}".format(sum(A)))
+
+11. Complete the given method solve. You are given a list A and also a key. You have to print the index of the key value if it is present in A, otherwise you must print Does not exist
+
+TEST CASES:
+-----------------------
+Example Input:
+25 9 1
+1
+
+Output:
+2
+
+Example Input:
+10 16 93
+25
+
+Output:
+Does not exist
+
+PROGRAM:
+---------------------
+def solve(A,key):
+    # write your code here
+    if key in A:
+        print(A.index(key))
+    else:
+        print("Does not exist")
+
+12. For a number n, we shall define it's k counterpart as the amount needed to be added to n to make it equal to k.
+
+For example,
+For 2, the 5 counterpart is 3
+For 2, the 10 counterpart is 8
+For 27, the 12 counterpart is -15
+
+Complete the given method solve which takes as parameter a list A and a number k.
+
+You have to find out whether the the first element's k counterpart exists in the rest of the list. If yes, print Exists. Otherwise, print Doesn't Exist
+
+TEST CASES:
+------------------------
+Example Input:
+10 24 91 8 7 3
+13
+
+Output:
+Exists
+
+Explanation: 10's 13 counterpart is 3, which exists in the list
+
+Example Input:
+10 24 91 8 7 3
+20
+
+Output:
+Doesn't Exist
+
+Explanation: 10's 20 counterpart is 10, which doesn't exist in rest of the list
+
+PROGRAM:
+---------------------------
+def solve(A,k):
+    # write your code here
+    c=k-A[0]
+    if c in A[1:]:
+        print("Exists")
+    else:
+        print("Doesn't Exist")
+
+13. We will define a list of integers to be inclusive if it meets the following conditions:
+
+It should have at least 6 elements
+The list should contain the mid-point of the first and the last elements of the list
+Complete the given method solve which takes as parameter a list A. Return True if the list is inclusive and False if it is not inclusive.
+
+TEST CASES:
+-----------------------
+Example Input:
+10 3 4 5
+
+Output:
+False
+
+Explanation: List is less than 6 elements
+
+Example Input:
+3 9 8 4 5 7
+
+Output:
+True
+
+Explanation: mid-point of 3 and 7 is 5, which exists in the list
+
+PROGRAM:
+----------------------
+def solve(A):
+    # write your code here
+    if(len(A)>=6):
+        mid=(A[0]+A[-1])//2
+        #print (mid)
+        if mid in A[1:-1]:
+            return("True")
+        else:
+            return("False")
+    else:
+        return("False")
