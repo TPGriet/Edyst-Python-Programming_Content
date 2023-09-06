@@ -1,1 +1,120 @@
+1. Complete the given method solve which takes as parameter a list A. You have to print all the elements of the given list on a single line.
 
+TEST CASES:
+----------------------
+Example Input:
+10 82 4485 10219 75
+
+Output:
+10 82 4485 10219 75
+
+Example Input:
+hello this is a list right ?
+
+Output:
+hello this is a list right ?
+
+PROGRAM:
+--------------------
+def solve(A):
+    # write your code here
+    for w in A:
+        print(w, end=' ')
+
+2. Complete the given method solve which takes as parameter a list A. You have to print only the odd elements from the list, in a single line
+
+TEST CASES:
+--------------------
+Example Input:
+10 82 4485 10219 75
+
+Output:
+4485 10219 75
+
+PROGRAM:
+-------------------
+def solve(A):
+    # write your code here
+    for num in A:
+        if(num%2!=0):
+            print(num,end=' ')
+
+3. Complete the given method solve which takes as parameter a list A. You have to print only those elements which start with a vowel. All the strings in the elements will be lower case.
+
+Print the words on a single line.
+
+TEST CASES:
+---------------------
+Example Input:
+hello this is edyst
+
+Output:
+is edyst
+
+Example Input:
+and or not is that the question my amicable friend
+
+Output:
+and or is amicable
+
+PROGRAM:
+------------------
+def solve(A):
+    # write your code here
+    for w in A:
+        if(w[0]in ['a','e','i','o','u']):
+            print(w,end=' ')
+
+4. Complete the given method solve which takes as parameter a list A. The list contains only integers. You must change the sign of each integer and return the modified list.
+
+TEST CASES:
+---------------
+Example Input:
+213 12379 -130 1239 -1203
+
+Output:
+-213 -12379 130 -1239 1203
+
+PROGRAM:
+-------------------------
+def solve(A):
+    
+    return(-i for i in A)
+
+5. Complete the given method solve which takes as parameter a list A. You have to return a list B which contains only the even elements of A.
+
+TEST CASES:
+------------------------
+Example Input:
+10 5 3 6
+
+Output:
+10 6
+
+PROGRAM:
+------------------
+def solve(A):
+    B=[]
+    for i in A:
+        if(i%2==0):
+            B.append(i)
+
+6. You are given a list of student names. Some students have played a prank and changed the list by including some names more than once.
+
+Complete the given method solve which accepts as parameter student_list and returns a new list with all the duplicate elements removed
+
+TEST CASES:
+--------------------------
+Example Input:
+ramesh sita mohan akansha mohan ramesh
+
+Output:
+ramesh sita mohan akansha
+
+PROGRAM:
+------------------------
+def solve(student_list):
+    # write your code here
+    res = []
+    [res.append(x) for x in student_list if x not in res]
+    return res
