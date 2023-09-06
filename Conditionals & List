@@ -1,1 +1,561 @@
+1. Complete the given method solve that accepts as parameter 2 integers a and b.
+
+You have to print True if the numbers are equal and False if they are not equal.
+
+For example: solve(5,5) prints True but solve(1,0) prints False.
+
+Example Input: 5 5
+Output: True
+Example Input: 1 0
+Output: False
+
+PROGRAM:
+----------------------
+def solve(num1,num2):
+    # write your code from here
+    if(num1==num2):
+        print("True")
+    else:
+        print("False")
+
+2. Complete the given method solve that accepts as parameter 2 integers num1 and num2. You have to print that number which has a greater value.
+
+For example: solve(2,3) prints 3 but solve(7,-9) prints 7.
+
+Example Input: 2 3
+Output: 2
+Example Input: 7 -9
+Output: 7
+
+PROGRAM:
+----------------------
+def solve(num1,num2):
+    # write your code from here
+    if(num1>num2):
+        print(num1)
+    else:
+        print(num2)
+
+3. You are in-charge of the odd-even machine. Complete the given method solve that takes as parameter an integer. You have to print Odd if the number is odd or Even if the number is even.
+
+Hint: Even numbers, on division by 2, don’t give a remainder. Can you use that to find if a number is even? Try using the % operator.
+
+Example Input: 23
+Output: Odd
+
+Example Input: 58
+Output: Even
+
+PROGRAM:
+-----------------
+def solve(num):
+    # write your code from here
+    if(num%2==0):
+        print("Even")
+    else:
+        print("Odd")
+
+4. Complete the given method solve to check if a given number lies in a certain range or not. Accept 3 parameters:
+
+the number to be checked
+the start of the range
+the end of the range
+Print In range if the number is in the range and Not in range if the number is not in the range.
+
+For example: solve(1,5,10) prints Not in range because 1 is not in between 5 and 10.
+
+Example Input: 1 5 10
+Output: Not in range
+
+Example Input: 12 12 16
+Output: In range
+
+PROGRAM:
+------------------------
+def solve(num,start,end):
+    # write your code from here
+    if(num>=start and num<=end):
+        print("In range")
+    else:
+        print("Not in range")
+
+5. Complete the method solve to check if a given number is divisible by either 9 or 20.
+
+Print True if it is and False otherwise.
+
+For example: solve(81) prints True because it is divisible by 9. However, solve(30) prints False because it is neither divisible by 9 nor 20.
+
+Example Input: 81
+Output: True
+
+Example Input: 30
+Output: False
+
+PROGRAM:
+-----------------------
+def solve(num):
+    # write your code from here
+    if(num%9==0 or num%20==0):
+        print("True")
+    else:
+        print("False")
+
+6. When celebrities get together for a party, they like to have chocolates.
+
+A celebrity party is successful when the number of chocolates is between 20 and 40, inclusive.
+
+Unless it is the weekend, in which case there is no upper bound on the number of chocolates.
+
+You have to complete the method solve that prints true if the party is successful and false if the party fails.
+
+solve takes 2 parameters: an integer and a boolean value.
+
+The integer has the number of chocolates
+the boolean is True if it’s the weekend and False if it’s not the weekend.
+solve has to print true or false to tell us if the party is successful or not with the given values.
+
+Example Input: 30 false
+Output: true
+
+Example Input: 50 false
+Output: false
+
+Example Input: 70 true
+Output: true
+
+PROGRAM:
+-------------------------
+def solve(chocolates,is_weekend):
+    # write your code from here
+    if((chocolates>=20 and chocolates<=40) or (is_weekend)):
+        print("true")
+    else:
+        print("false")
+
+7. You and your friend are movie fans and want to predict if the movie is going to be a hit!
+
+The movie's success formula depends on 2 parameters:
+
+the acting power of the actor (range 0 to 10)
+the critic's rating of the movie (range 0 to 10)
+The movie is a hit if the acting power is excellent (more than 8) or the rating is excellent (more than 8). This holds true except if either the acting power is poor (less than 2) or rating is poor (less than 2), then the movie is a flop. Otherwise the movie is average.
+
+Complete the given method solve that takes as parameters 2 integers:
+
+the first integer is the acting power
+second integer is the critic's rating.
+You have to print Yes if the movie is a hit, Maybe if the movie is average and No if the movie is flop.
+
+Example input: 9 5
+Output: Yes
+Example input: 1 9
+Output: No
+Example input: 6 4
+Output: Maybe
+
+PROGRAM:
+----------------------
+def solve(acting_power,rating):
+    # write your code from here
+    if((acting_power>=8 or rating>=8) and (acting_power>2 and rating>2)):
+        print("Yes")
+    elif(acting_power<=2 or rating<=2):
+        print("No")
+    else:
+        print("Maybe")
+
+8. Today, your mother wants to make sweets for you because of your exam results.
+
+She will make 0 Sweets if you scored 60 or less.
+She will make 1 Sweet if you scored between 61 and 80 inclusive.
+If you scored 81 or higher, she will make 2 Sweets.
+However, if it is your birthday, then your mother will consider your score to be 5 higher than it currently is. (Eg, 57 become 62, if it's your birthday)
+
+Complete the given method solve that takes in 2 parameters:
+
+first an integer that has your score
+the second is a boolean value that is true if it is your birthday and false if it is not your birthday
+You have to print the number of sweets you will receive (0, 1 or 2) based on the given parameters.
+
+Example: solve(65,false) prints 1 because you scored between 61 and 80, and it is not your birthday.
+
+Example Input: 65 false
+Output: 1
+Example Input: 57 true
+Output: 1
+Example Input: 90 false
+Output: 2
+
+PROGRAM:
+----------------------
+def solve(score,is_birthday):
+    # write your code from here
+    #sweets=0
+    if(is_birthday):
+        score=score+5
+    if(score<=60):
+        sweets=0
+    elif(score>=61 and score<=80):
+        sweets=1
+    else:
+        sweets=2
+    print(sweets)    
+
+9.  Sasha just loves the number 7 and considers it lucky. She loves it so much that she has a formula to understand if a pair of numbers are lucky are not.
+
+If any or both of the numbers are 7, then the pair is lucky
+If the sum of the numbers is 7, then the pair is lucky
+If the absolute difference of the 2 numbers is 7, then the pair is lucky
+Complete the given function solve that takes as parameters 2 integers and prints Lucky! if the pair is lucky. Otherwise it prints Not Lucky!
+
+Example Input: 1 6
+Output: Lucky!
+Example Input: -9 -16
+Output: Lucky!
+Example Input: 7 95
+Output: Lucky!
+Example Input: 28 57
+Output: Not Lucky!
+
+PROGRAM:
+-------------------
+def solve(num1,num2):
+    # write your code from here
+    if(num1==7 or num2==7):
+        print("Lucky!")
+    elif((num1+num2)==7):
+        print("Lucky!")
+    elif(abs(num1-num2)==7):
+        print("Lucky!")
+    else:
+        print("Not Lucky!")
+
+
+10. Jim has a new obsession: crazy numbers. A number is crazy if it is either a multiple of 13 or if it is one more than a multiple of 13.
+
+Complete the given function solve that takes as parameter an integer and prints Crazy if a number is crazy. Otherwise it prints Not Crazy.
+
+Example Input: 13
+Output: Crazy
+Example Input: 27
+Output: Crazy
+Example Input: 42
+Output: Not Crazy
+Example Input: -12
+Output: Crazy
+
+PROGRAM:
+---------------------
+def solve(num):
+    # write your code from here
+    if((num%13==0) or (num%13==1)):
+        print("Crazy")
+    else:
+        print("Not Crazy")
+
+11. Complete the given method solve that takes as parameter an integer value. Print Fizz if it is a multiple of 3, Buzz if it is a multiple of 5 and FizzBuzz if it is a multiple of both 3 and 5. Otherwise, print the number itself.
+
+Example Input: 27
+Output: Fizz
+Example Input: 35
+Output: Buzz
+Example Input: 60
+Output: FizzBuzz
+Example Input: 11
+Output: 11
+
+PROGRAM:
+-------------------------
+def solve(num):
+    if((num%3==0) and (num%5==0)):
+        print("FizzBuzz")
+    elif(num%5==0):
+        print("Buzz")
+    elif((num%3==0) ):
+        print("Fizz")
+    else:
+        print(num)
+
+12. Tomorrow is the local picnic day and the parents are excited to take their children to the park. The organizers are giving some chocolates to the children. We know that every family has 2 children.
+
+The organizers will give chocolates corresponding to the age of the children. So a family with a four-year old and a 7-year old child will get 11 chocolates.
+
+However, if any of the child in that family is a teenager (between 13 to 19 inclusive), then that family receives a total of 40 chocolates.
+
+Complete the method solve that takes as parameters 2 integers, each storing the age of a child. You have to print the number of chocolates the family will get.
+
+Example Input: 4 7
+Output: 11
+Example Input: 11 20
+Output: 31
+Example Input: 5 13
+Output: 40
+
+PROGRAM:
+-----------------------
+def solve(num1,num2):
+    # write your code from here
+    if((num1>=13 and num1<=19) or (num2>=13 and num2<=19)):
+        choclates=40
+    else:
+        choclates=num1+num2
+    print(choclates)    
+
+13. Pooja just got a new cellphone. She carries it everywhere, even to her morning college classes.
+
+She normally answers calls, except in the morning. In the morning she answers only if her Mom calls. However she never answers any calls when she is sleeping.
+
+Complete the method solve, that takes in 3 boolean parameters:
+
+the first boolean is True if it is morning and False if it is not morning
+the second boolean is True if her mom is calling and False if her mom is not calling
+the third boolean is True if she is sleeping and False if she is not sleeping
+You have to print True if Pooja will answer the call and False if she will not answer it.
+
+Example Input: true false false
+Output: False
+Example Input: true true false
+Output: True
+Example Input: false true true
+Output: False
+
+PROGRAM:
+-----------------------
+def solve(morning,mother,sleep):
+    if(morning and mother and sleep):
+        print("False")
+    elif(morning):
+        if(mother):
+              print("True")
+        else:
+              print("False")
+    elif not(morning):
+
+        if(sleep):
+
+              print("False")
+
+        else:
+
+            print("True")
+
+    else:
+
+        print("True")
+
+14. Complete the method solve that takes as parameter 1 String. The entire string is in lowercase.
+
+If the string starts with f print Fizz. If the string ends with b print Buzz.
+If both the f and b conditions are true, print FizzBuzz. In all other cases, print the string unchanged.
+
+Example Input: fuel
+Output: Fizz
+Example Input: lob
+Output: Buzz
+Example Input: flab
+Output: FizzBuzz
+Example Input: Goodness
+Output: Goodness
+
+PROGRAM:
+--------------------
+def solve(string):
+    # write your code from here
+    if(string.startswith('f') and string.endswith('b')):
+        print("FizzBuzz")
+    elif(string.startswith('f')):
+        print("Fizz")
+    elif(string.endswith('b')):
+        print("Buzz")
+    else:
+        print(string)
+
+15. Complete the method solve that takes in 3 integers as parameters. You have to print True if any integer is the sum of the other 2 integers. Otherwise, print False.
+
+Example Input: 2 3 5
+Output: True
+Example Input: 5 3 -2
+Output: True
+Example Input: 17 57 20
+Output: False
+
+PROGRAM:
+-----------------------
+def solve(num1,num2,num3):
+    # write your code from here
+    if((num1+num2==num3) or (num1+num3)==num2 or(num2+num3)==num1):
+        print("True")
+    else:
+        print("False")
+
+16. Dwight is laying down a row of bricks whose length is target inches. Dwight has 2 types of bricks: small bricks (1 inch each) and big bricks (5 inch each). He wants to know if the number of small bricks and big bricks he has is enough.
+
+If a brick is being used, it has to be used fully and not in parts.
+
+Complete the method solve that takes in 3 integers:
+
+first integer has the value of target
+second integer has number of big bricks
+third integer has number of small bricks
+The method should print Possible if the number of bricks are enough. Otherwise print Impossible.
+
+Example Input: 5 2 1
+Output: Possible
+Example Input: 10 0 10
+Output: Possible
+Example Input: 13 2 5
+Output: Possible
+Example Input: 13 3 0
+Output: Impossible
+Example Input: 13 2 0
+Output: Impossible
+
+PROGRAM:
+--------------------
+def solve(target,big_bricks,small_bricks):
+    # write your code from here
+    if(big_bricks>0 and small_bricks>0):
+        if(target%5==0 and target//5<=big_bricks):
+            print("Possible")
+        elif(target%5>=0 and target%5<=small_bricks):
+            print("Possible")
+        else:
+            print("Impossible")
+    elif(big_bricks>0 and small_bricks==0):
+        if(target%5==0):
+            print("Possible")
+        else:
+            print("Impossible")
+    elif(big_bricks==0 and small_bricks>0): 
+        if(target==small_bricks):
+            print("possible")
+        else:
+            print("Impossible")
+
+17. Jim has recently started gambling. He plays Number BlackJack. In this game, the players draw numbered cards and whoever has a value closer to 21 wins. However, if the number goes over 21 then both lose. If both have the same value, then also both of them lose.
+
+Given the values possessed by 2 players, you have to tell us who wins.
+
+Complete the given function solve that takes input 2 integers: the first integer is Player 1's value and 2nd integer is Player2's value. You have to print Player1 if Player1 wins, Player2 if Player2 wins and Rematch if both lose.
+
+Example Input: 14 18
+Output: Player2
+Example Input: 21 3
+Output: Player1
+Example Input: 27 32
+Output: Rematch
+
+PROGRAM:
+---------------------
+def solve(num1,num2):
+    # write your code from here
+    if((num1>21 or num2>21) or(num1==num2)):
+        print("Rematch")
+    elif(num1>num2):
+            print("Player1")
+    elif(num2>num1):
+            print("Player2")
+    else:
+        print("Rematch")
+
+
+18. Jim is now playing some dice games. In this game, 2 dice are rolled.
+
+The score is calculated by summing the value on the 2 dice. However, when playing in special mode, if the number on both dice are equal, then one value is incremented, wrapping around to 1 if its value was 6.
+
+Complete the given function solve to calculate the score. The parameters are 2 integers and 1 boolean. Each integer has the value of one of the dice. The boolean is true if the special mode is being played, otherwise it is false. You have to print the score depending on the values.
+
+Example Input: 4 3 false
+Output: 7
+Example Input: 4 4 false
+Output: 8
+Example Input: 4 4 true
+Output: 9
+Example Input: 6 6 true
+Output: 7
+
+PROGRAM:
+--------------------
+def solve(num1,num2,special_mode):
+    # write your code from here
+    if(special_mode):
+        if(num1==num2):
+            if(num1==6):
+                sum=num2+1
+            else:
+                sum=num1+num2+1
+        else:
+            sum=num1+num2
+    else: 
+        sum=num1+num2
+    print(sum)    
+
+19. We are going to play a game called 6's twist. In this, we take 2 numbers and print the larger number. However, if the 2 values have the same remainder when divided by 6, then we print the smaller value. However, in all cases, if the two values are the same, we print 0.
+
+Complete the function solve that takes in 2 integer values and prints the result as per 6's treat.
+
+Example Input: 1 7
+Output: 1
+Example Input: 35 28
+Output: 35
+Example Input: 44 44
+Output: 0
+
+PROGRAM:
+----------------------
+def solve(num1,num2):
+    # write your code from here
+    if(num1==num2):
+        print(0)
+    elif((num1%6)==(num2%6)):
+        if(num1>num2):
+            print(num2)
+        else:
+            print(num1)
+    else:
+        print(num2 if num1<num2 else num1)
+
+20. You have recently seen a motivational sports movie and want to start exercising regularly. Your coach tells you that it is important to get up early in the morning to exercise. She sets up a schedule for you:
+
+On weekdays (Monday - Friday), you have to get up at 5:00. On weekends (Saturday & Sunday), you can wake up at 6:00. However, if you are on vacation, then you can get up at 7:00 on weekdays and 9:00 on weekends.
+
+Write a program to print the time you should get up.
+
+Input Format:
+
+The first line contains n - the number of inputs.
+Following that are n lines, each containing an integer and a boolean value.
+
+The integer tells you the day it is (1-Sunday, 2-Monday, 3-Tuesday, 4-Wednesday, 5-Thursday, 6-Friday, 7-Saturday). The boolean is true if you are on vacation and false if you’re not on vacation.
+
+You have to print the time you should get up.
+
+You have to write the entire program and not just the method. Please keep the name of your class as Main
+
+Example Input:
+1 false
+5 false
+1 true
+Output:
+6:00
+5:00
+9:00
+
+PROGRAM:
+----------------------
+n=int(input())
+while(n>0):
+    d,vac=input().split()
+    d=int(d)
+    if(vac=='true'):
+        if(d in (1,7)):
+            print("9:00")
+        else:
+            print("7:00")
+    else:
+        if(d in (1,7)):
+            print("6:00")
+        else:
+            print("5:00")
+    n=n-1  
 
