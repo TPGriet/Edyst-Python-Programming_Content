@@ -1,1 +1,218 @@
+1. Complete the given method solve that prints the numbers from 1 to 10.
 
+Print the numbers on a single line, separated by a space character. At the end of the line, print a new line.
+
+PROGRAM:
+--------------------
+def solve():
+    # write your code here
+    for i in range(1,11):
+        print(i,end=" ")
+
+2. Complete the given method solve that prints the numbers from 1 to 100.
+
+Print each number on a separate line.
+
+PROGRAM:
+----------------------
+def solve():
+    # write your code here
+    for i in range(1,101):
+        print(i)
+
+3. Complete the given method solve that prints the even numbers from 2 to 400 (both inclusive).
+
+Print each number on a separate line.
+
+PROGRAM:
+------------------------
+def solve():
+    # write your code here
+     for i in range(2,401):
+        if(i%2==0):
+            print(i)
+
+4. Complete the given method solve that prints the numbers from 50 to 1 in descending order
+
+Print each number on a separate line.
+
+PROGRAM:
+----------------------
+def solve():
+    # write your code here
+     for i in range(50,0,-1):
+        print(i)
+
+5. Complete the given method solve that accepts as parameter an integer n.
+
+You have to print the numbers from 100 to n.
+
+TEST CASES:
+-------------------
+Example Input: 98
+Output:
+100
+99
+98
+Note : n will be always less than 100
+
+PROGRAM:
+---------------------
+def solve(n):
+    # write your code here
+     for i in range(100,n-1,-1):
+        print(i)
+
+6. Complete the given method solve that takes as parameters an integer and prints the first five multiples of the integer.
+
+Print the multiples on a single line, separated by a space character. At the end of the line, print a new line.
+
+TEST CASES:
+----------------------
+Example Input: 5
+Output: 5 10 15 20 25
+Example Input: 7
+Output: 7 14 21 28 35
+
+PROGRAM:
+-------------------------
+def solve(n):
+    # write your code here
+     for i in range(1,6):
+        print(n*i,end=' ')
+
+7. Complete the given method solve that takes as parameters an integer and prints the first ten multiples of the integer.
+
+Print the multiples on a single line, separated by a space character. At the end of the line, print a new line.
+
+TEST CASES:
+----------------------
+Example Input: 5
+Output: 5 10 15 20 25 30 35 40 45 50
+Example Input: 7
+Output: 7 14 21 28 35 42 49 56 63 70
+
+PROGRAM:
+---------------------
+def solve(n):
+    # write your code here
+     for i in range(1,11):
+        print(i*n,end=' ')
+
+8. In Fibonacci series, the next number is the sum of previous two numbers. The series starts with 0 and 1, and then the next numbers are a sum of the previous 2 numbers.
+
+For example 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 etc.
+
+Here the first 2 numbers are 0 and 1
+
+The next numbers are:
+
+1 (= 1 + 0)
+2 (= 1 + 1)
+3 (= 2 + 1)
+5 (= 3 + 2)
+And so on...
+
+Complete the given method solve that prints the first n numbers of the Fibonacci series. The value of n is passed as an integer parameter to the method.
+
+Hint: You already know the first 2 values. How can you calculate the remaining?
+
+Print the values on a single line, separated by a space character. At the end of the line, print a new line.
+
+TEST CASES:
+------------------------
+Example Input: 1
+Output: 0
+Example Input: 0
+Output:
+Example Input: 6
+Output: 0 1 1 2 3 5
+Example Input: 3
+Output: 0 1 1
+Example Input: 2
+Output: 0 1
+
+PROGRAM:
+--------------------------
+def solve(n):
+    # write your code here
+    if(n==0):
+        print("")
+    elif(n==1):
+        print(0)
+    elif(n>=2):
+        n1=0
+        n2=1
+        print(n1 , n2,end=" ")
+        for i in range (3,n+1):
+            n3=n1+n2
+            n1=n2
+            n2=n3
+            print(n3,end=" ")
+
+9. Consider a sequence of the form 0, 1, 1, 2, 4, 7, 13, 24, 44, 81, 149...
+
+Complete the given method solve which takes as parameter an integer n and prints the nth term of the above sequence. The nth term will fit in an integer value.
+
+Hint: Does this pattern look familiar? Remember the logic for Fibonacci series?
+
+TEST CASES:
+-------------------------
+Example Input: 5
+Output: 4
+Example Input: 8
+Output: 24
+Example Input: 11
+Output: 149
+
+PROGRAM:
+---------------------------
+def solve(n):
+    # write your code here
+    if(n==0):
+        print("")
+    elif(n==1):
+        print(0)
+    elif(n==2):
+        print("0,1,",end=" ")
+    elif(n==3):
+        print("0,1,1,",end=" ")    
+    elif(n>3):
+        n1=0
+        n2=1
+        n3=1
+        for i in range (4,n+1):
+            n4=n1+n2+n3
+            n1=n2
+            n2=n3
+            n3=n4
+        print(n4,end=" ")
+
+10. Consider the following sequence:
+
+1st term: 1
+2nd term: 1 2 1
+3rd term: 1 2 1 3 1 2 1
+4th term: 1 2 1 3 1 2 1 4 1 2 1 3 1 2 1
+
+And so on. Complete the given method solve that takes as parameter an integer n and prints the nth terms of this sequence.
+
+Hint: Perhaps you should use a String to store the sequence? What is happening in each term of the sequence?
+
+
+TEST CASES:
+-------------------------
+Example Input: 1
+Output: 1
+Example Input: 4
+Output: 1 2 1 3 1 2 1 4 1 2 1 3 1 2 1
+
+PROGRAM:
+-------------------------
+def solve(n):
+    # write your code here
+    sequence = "1 "
+    for i in range(2,n+1):
+        sequence= sequence + str(i)+ " " + sequence
+    
+    print(sequence)
