@@ -1,1 +1,184 @@
+1. Complete the given function solve, which takes a list A as parameter, you have to return the number of odd numbers in the list.
 
+TEST CASES:
+----------------------
+Example Input:
+10 18 73 50 32 61
+
+Output:
+2
+
+PROGRAM:
+----------------------
+def solve(A):
+    # write your code here
+    count=0
+    for i in A:
+        #print(i)
+        if(i%2!=0):
+            count=count+1
+    return(count)        
+
+2. Complete the given function solve, which takes a list A as parameter, you have to return the number of strings in that list that have even length
+
+TEST CASES:
+---------------------
+Example Input:
+my code is beautiful and so is edyst
+
+Output:
+5
+
+PROGRAM:
+----------------------------
+def solve(A):
+    # write your code here
+    count=0
+    for i in A:
+        if(len(i)%2==0):
+            count=count+1
+            
+    return(count)
+
+
+3. Complete the given method solve which takes as parameter a list A. 
+We want to know whether the list can be split into 2 parts such that the sum of 1 side is equal to the sum of the other side.
+
+If it's possible, print True. Otherwise, print False.
+
+TEST CASES:
+-----------------------
+Example Input:
+10 5 3 1 1 1 1 1 1 12
+
+Output:
+True
+
+Explanation: The list can be split into [10,5,3] and [1,1,1,1,1,1,12] since both of their sums are equal
+
+PROGRAM:
+-----------------------
+def solve(A):
+    # write your code here count=0
+    f=0
+    leftSum=0
+    n=len(A)
+    for i in range(0, n) :
+        leftSum += A[i]
+   
+    rightSum = 0
+    for i in range(n-1, -1, -1) :
+        rightSum += A[i]
+        leftSum -= A[i] 
+        if (rightSum == leftSum) :
+             f=1
+    if(f==1):
+        print("True")
+    else:
+        print("False")
+
+
+4. Complete the given function solve. This function accepts as parameter 2 numbers start and end.
+
+You have to generate a list with numbers start from start ending with end. Additionally, you have to do the following:
+
+for those numbers that are divisible by 3, you must have the word Fizz instead of the number
+for those numbers that are divisible by 5, your must have the word Buzz instead of the number
+And for those numbers divisible by both 3 and 5, we must have the word FizzBuzz
+Return the list that you have generated.
+
+TEST CASES:
+------------------------
+Example Input:
+2 18
+
+Output:
+2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz
+
+PROGRAM:
+-----------------------
+def solve(start,end):
+    # write your code here
+    lst=[]
+    for i in range(start,end+1):
+        if(i%3==0 and i%5==0):
+            lst.append("FizzBuzz")
+        elif i%3==0:
+            lst.append("Fizz")
+        elif i%5==0: 
+            lst.append("Buzz")
+        else:
+            lst.append(i)
+    return lst   
+
+5. Complete the given method solve which accepts an integer n. You have to generate a list containing the first n+1 Fibonacci numbers.
+
+Recap: Fibonacci numbers are those that are formed by summing up the previous 2 numbers in the series.
+The series starts with 0 and 1, and is then followed by : 1 2 3 5 8 13...
+Return the generated list
+
+TEST CASES:
+------------------
+Example Input:
+1
+
+Output:
+0 1
+
+Example Input:
+6
+
+Output:
+0 1 1 2 3 5 8
+
+PROGRAM:
+----------------
+def solve(n):
+    # write your code here
+    n1=0
+    n2=1
+    lst=[0,1]
+    if(n==0):
+        lst=[0]
+        return (lst)
+    if(n==1):
+        return lst
+    elif(n>1):
+        for i in range(n-1):
+            n3=n1+n2
+            n1=n2
+            n2=n3
+            lst.append(n3)
+        return lst 
+
+6. Complete the given method solve. You are given a list of integers A.
+You have to check whether the list forms an AP (Arithmetic Progression or not). Print True if it does and Normal Series if it does not.
+
+TEST CASES:
+--------------------
+Example Input:
+1 6 11 16 21
+
+Output:
+True
+
+Example Input:
+9 0 7 1 5
+
+Output:
+Normal Series
+
+PROGRAM:
+-----------------------------
+def solve(A):
+    # write your code here
+    d = A[1] - A[0]
+    AP=1
+    for index in range(len(A) - 1):
+        if not (A[index + 1] - A[index] == d):
+            AP=0
+            break;
+    if(AP==1):
+        print("True")
+    else:
+        print("Normal Series")
