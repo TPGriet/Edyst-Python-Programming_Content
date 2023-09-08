@@ -389,9 +389,9 @@ Hint: How many rows are there for a number n? How many columns? How many . on ea
 
 TEST CASES:
 -------------------
+
 Example Input: 4
 Output:
-
 ....*....
 ...***...
 ..*****..
@@ -401,6 +401,7 @@ Output:
 ..*****..
 ...***...
 ....*....
+
 Example Input: 2
 Output:
 
@@ -410,16 +411,34 @@ Output:
 .***.
 ..*..
 
+
 PROGRAM:
 ------------------------------
 def solve(n):
-    h=n
-    
-    # write your code here
+    '''h=n
     for x in range(h+1):
-        print("." * (h - x), "*" * (2*x + 1),"." * (h - x))
-    for x in range(h - 1, -1, -1):
-        print("." * (h - x), "*" * (2*x + 1),"." * (h - x))
+        print('.'*(h-x),'*'*(2*x+1),'.'*(h-x))
+    for x in range(h-1,-1,-1):
+        print('.'*(h-x),"*"*(2*x+1),'.'*(h-x))'''
+    for i in range(n+1):
+        for j in range(n - i):
+            print('.', end='')
+        for j in range(2 * i + 1):
+            print('*', end='')
+        for j in range(n-i):
+            print('.', end='')    
+        print()
+
+# downward pyramid
+    for i in range(n):
+        for j in range(i + 1):
+            print('.', end='')
+        for j in range(2*(n - i) - 1):
+            print('*', end='')
+        for j in range(i + 1):
+            print('.', end='')    
+        print()
+
 
 12. Complete the given method solve that takes as parameter an integer n and prints the nth prime number.
 
