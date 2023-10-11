@@ -1,1 +1,121 @@
+SEARCHING:
+-------------------------
+1.Find Element Using Linear Search
+Write a program to take an 1D integer array and also another integer, the key. 
+You have to find the position of the key in the array. If the key does not exist, print No. Otherwise, print the index.
 
+Input Format:
+First line take an Integer input from stdin which is array length n.
+Second line take n Integers which is inputs of array.
+Third line take an Integer input which is key to search.
+Output Format:
+Print Index when key is present otherwise print No.
+Note: If the key exists in more than one index, choose that index which has higher value.
+
+Test case Example:
+-------------------------
+Input:
+5
+1 3 2 4 5
+2
+
+Output:
+2
+
+Example Input:
+4
+4 2 7 3
+9
+
+Output:
+No
+
+PROGRAM:
+----------------------
+
+2. Find elements using Binary Search
+Write a program to take an 1D integer array which is sorted  and also another integer, the key. You have to find whether the key exists in the list or not. If the key does not exist, print -1. Otherwise, print 1.
+
+Input Format:
+
+First line take an Integer input from stdin which is array length n.
+Second line take n Integers which is inputs of array.
+Third line take an Integer input which is key to search.
+Output Format:
+
+Print 1 when key is present otherwise print -1.
+
+Test case Example:
+-------------------------
+Input:
+5
+1  2 4 5 6
+2
+
+Output:
+1
+
+Example Input:
+6
+5 6 7 8 9 10
+3
+
+Output:
+-1
+
+PROGRAM:
+-------------------------
+
+SORTING:
+------------------------
+1.Recursive Factorial
+Let’s write the factorial of a number in a recursive manner.
+Write a method Fac that takes as parameter an integer (n) and returns the Factorial of n. 
+The Fac method has to be in a Solution class. Check the code editor for ideal method definition.
+
+Note: n >= 0
+Don’t write the Class and main method - assume they are already there.
+
+Test case Example:
+-----------------------
+Input:
+0
+1
+5
+Output:
+1
+1
+120
+
+PROGRAM:
+----------------------
+
+2. Find elements using Binary Search
+Write a program to take an 1D integer array which is sorted  and also another integer, the key. 
+You have to find whether the key exists in the list or not. If the key does not exist, print -1. Otherwise, print 1.
+
+Input Format:
+First line take an Integer input from stdin which is array length n.
+Second line take n Integers which is inputs of array.
+Third line take an Integer input which is key to search.
+Output Format:
+
+Print 1 when key is present otherwise print -1.
+
+Test case Example: 
+-------------------------
+Input:
+5
+1  2 4 5 6
+2
+
+Output:
+1
+
+Example Input:
+6
+5 6 7 8 9 10
+3
+
+Output:
+-1
