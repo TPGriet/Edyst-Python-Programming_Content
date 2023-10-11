@@ -65,57 +65,72 @@ Output:
 
 PROGRAM:
 -------------------------
+n=int(input())
+l=list(map(int,input().split()))
+key=int(input())
+f=-1
+low=0
+high=n
+mid=n//2
+while(l[mid]!=key and high >= low):
+    mid = (high+low)//2
+    if(l[mid] == key):
+        f=1
+        break
+    elif(key > l[mid]):
+        low = mid + 1
+    elif(key < l[mid]):
+        high = mid - 1;
+print(f)
 
 SORTING:
 ------------------------
-1.Recursive Factorial
-Let’s write the factorial of a number in a recursive manner.
-Write a method Fac that takes as parameter an integer (n) and returns the Factorial of n. 
-The Fac method has to be in a Solution class. Check the code editor for ideal method definition.
-
-Note: n >= 0
-Don’t write the Class and main method - assume they are already there.
+1.Implement Selection Sort
+Write a program to sort the given array by using Selection sort
 
 Test case Example:
------------------------
+------------------
 Input:
-0
-1
-5
+1 3 3 2 1 2
+
 Output:
-1
-1
-120
+1 1 2 2 3 3
 
 PROGRAM:
 ----------------------
+class Solution:
+    def selectionSort(self, A):
+        for i in range(len(A)-1): 
+            min_index = i 
+            for j in range(i+1, len(A)): 
+                if A[min_index] > A[j]: 
+                    min_index = j 
+            A[i], A[min_index] = A[min_index], A[i] 
+        return A
 
-2. Find elements using Binary Search
-Write a program to take an 1D integer array which is sorted  and also another integer, the key. 
-You have to find whether the key exists in the list or not. If the key does not exist, print -1. Otherwise, print 1.
 
-Input Format:
-First line take an Integer input from stdin which is array length n.
-Second line take n Integers which is inputs of array.
-Third line take an Integer input which is key to search.
-Output Format:
+2. Implement Insertion Sort
+Write a program to sort the given array by using Insertion sort
 
-Print 1 when key is present otherwise print -1.
-
-Test case Example: 
--------------------------
+Test case Example:
+----------------------
 Input:
-5
-1  2 4 5 6
-2
+1 3 3 2 1 2
 
 Output:
-1
+1 1 2 2 3 3
 
-Example Input:
-6
-5 6 7 8 9 10
-3
-
-Output:
--1
+PROGRAM:
+-------------------
+class Solution:
+    def insertionSort(self, arr):
+        # write your method here
+        for i in range(1, len(arr)):   
+            key = arr[i] 
+            j = i-1
+            while j >= 0 and key < arr[j] : 
+                arr[j + 1] = arr[j] 
+                j -= 1
+            arr[j + 1] = key 
+        return arr     
+            
