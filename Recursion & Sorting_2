@@ -1,1 +1,252 @@
+RECURSION:
+------------------------
+1. Recursive Factorial
+Let’s write the factorial of a number in a recursive manner.
+Write a method Fac that takes as parameter an integer (n) and returns the Factorial of n. 
+The Fac method has to be in a Solution class. Check the code editor for ideal method definition.
+Note: n >= 0
+Don’t write the Class and main method - assume they are already there.
 
+Test case Example:
+-----------------------
+Input:
+0
+1
+5
+Output:
+1
+1
+120
+
+PROGRAM:
+-----------------
+class Solution:
+    def mergeTwoArrays(self, A, B, C):
+        # write your method here
+        self.A=A
+        self.B=B
+        self.C=C
+        self.C = [None] * (len(A) + len(B)) 
+        i = 0
+        j = 0
+        k = 0
+        n1=len(A)
+        n2=len(B)
+    # Traverse both array 
+        while(k< n1+n2):
+            if i < n1 and j < n2: 
+                if A[i] < B[j]: 
+                    C[k] = A[i] 
+                    k = k + 1
+                    i = i + 1
+                else: 
+                    C[k] = B[j] 
+                    k = k + 1
+                    j = j + 1
+            elif i < n1: 
+                C[k] = A[i]; 
+                k = k + 1
+                i = i + 1
+  
+            elif j < n2: 
+                C[k] = B[j]; 
+                k = k + 1
+                j = j + 1
+
+2. Towers Of Hanoi
+As per the constraints of the Towers of Hanoi, write a method Met that takes 4 parameters:
+
+First, an integer with number of discs
+Second, a String with name of starting pole
+Third, a String with name of helper pole
+Fourth, a String with name of destination pole
+You have to print the steps to solve the problem.
+The Met method has to be inside a Solution class. Please check the code editor for the ideal method definition.
+
+Test case Example:
+-----------------------
+Input:
+3 A B C
+Output:
+A to C
+A to B
+C to B
+A to C
+B to A
+B to C
+A to C
+
+PROGRAM:
+---------------------------------
+
+SORTING 2:
+-----------------------
+1. Merge 2 Arrays
+Write a program to merge two sorted Arrays into single sorted Array.The time complexity must be in O(N).
+
+Example:
+1 2 3 3
+2 4 5 6
+
+Ouput:
+1 2 2 3 3 4 5 6
+
+PROGRAM:
+------------------------
+class Solution:
+    def mergeTwoArrays(self, A, B, C):
+        # write your method here
+        self.A=A
+        self.B=B
+        self.C=C
+        self.C = [None] * (len(A) + len(B)) 
+        i = 0
+        j = 0
+        k = 0
+        n1=len(A)
+        n2=len(B)
+    # Traverse both array 
+        while(k< n1+n2):
+            if i < n1 and j < n2: 
+                if A[i] < B[j]: 
+                    C[k] = A[i] 
+                    k = k + 1
+                    i = i + 1
+                else: 
+                    C[k] = B[j] 
+                    k = k + 1
+                    j = j + 1
+            elif i < n1: 
+                C[k] = A[i]; 
+                k = k + 1
+                i = i + 1
+  
+            elif j < n2: 
+                C[k] = B[j]; 
+                k = k + 1
+                j = j + 1
+
+
+
+2. Implement Merge Sort
+Write a program to sort the given array by using merge sort.Your solution must be in
+O(N logN).
+
+Example Input:
+1 3 2 1 4 5
+
+Output:
+1 1 2 3 4 5
+
+PROGRAM:
+----------------------------
+class Solution:
+    def merge(self, A, B):
+        # write your method here
+            self.A=A
+            self.B=B
+            C = [None] * (len(A) + len(B)) 
+            i = 0
+            j = 0
+            k = 0
+            n1=len(A)
+            n2=len(B)
+    # Traverse both array 
+            while(k< n1+n2):
+                if i < n1 and j < n2: 
+                    if A[i] < B[j]: 
+                        C[k] = A[i] 
+                        k = k + 1
+                        i = i + 1
+                    else: 
+                        C[k] = B[j] 
+                        k = k + 1
+                        j = j + 1
+                elif i < n1: 
+                    C[k] = A[i]; 
+                    k = k + 1
+                    i = i + 1
+  
+                elif j < n2: 
+                    C[k] = B[j]; 
+                    k = k + 1
+                    j = j + 1
+            return C
+    def mergesort(self, Arr):
+        # write your method here
+        s=Solution()
+        self.Arr=Arr
+        n = len(Arr)
+        if(n==1):
+            return Arr
+ 
+        B1 = []
+        for i in range(n//2):
+            B1.append(Arr[i])
+         
+        B2 = []
+        for i in range(n//2, n, 1):
+            B2.append(Arr[i])
+        
+        B1 = s.mergesort(B1) # applying mergesort to B1
+        B2 = s.mergesort(B2) # applying mergesort to B2
+        return(s.merge(B1,B2)); # merging both lists
+        
+
+3. Partition The Array
+Write a program to partition a given array around an element (called the pivot). 
+Given the array and the index of pivot element (passed as parameters to the function),
+rearrange the numbers in the array so that all elements lesser than the pivot come to the left of it, 
+while all numbers greater than the pivot come to the right of it in the newly rearranged array.
+
+Test case Example: 
+Input:
+9 -6 6 10 1 -3 -8 -3 -8 -2
+9
+Output:
+
+-6 -3 -8 -3 -8 -2 6 10 1 9
+
+PROGRAM:
+-----------------------
+class Solution:
+    def partition(self, A, pivot):
+        i = -1
+        j = 0
+        while(j< len(A)):
+            if(A[j] > A[pivot]):
+                j = j+1
+            else:
+                i = i+1
+                temp = A[i]
+                A[i] = A[j]
+                A[j] = temp
+                j = j+1
+
+4. Implement Quick Sort
+Write a program to sort the given array by using quick sort.Your solution must be in
+O(N logN).
+
+Test case Example:
+---------------------
+Input:
+1 3 2 6 4 5
+
+Output:
+1 2 3 4 5 6
+
+PROGRAM:
+-----------------------
+class Solution:
+    
+    def quicksort(self, Arr):
+        s=Solution()
+        if len(Arr) <= 1:
+                return Arr
+            
+        else:
+            pivot = Arr[0]
+            left = [x for x in Arr[1:] if x < pivot]
+            right = [x for x in Arr[1:] if x >= pivot]
+            return s.quicksort(left) + [pivot] + s.quicksort(right)
+ 
