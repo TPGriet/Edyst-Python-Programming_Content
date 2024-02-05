@@ -211,4 +211,656 @@ for _ in range(testcases):
     print(f'Postfix: {fix.postfix}')
     print('---')
 
-4. 
+4. Given an array, find the Next greater element for every element.
+The Next greater Element for an element x is the first greater element on the right side of x in array.
+Elements for which no greater element exist, consider next greater element as -1.
+
+Test case Example :
+--------------------------
+Input :
+A : [4, 5, 2, 25]
+Output :
+   [5, 25, 25, -1]
+
+PROGRAM:
+------------------------
+class Solution:
+    
+    def nextGreaterElement(self, arr):
+        result = [-1] * len(arr)  # Initialize result array with -1
+        stack = []
+
+        for i in range(len(arr)):
+            while stack and arr[i] > arr[stack[-1]]:
+                index = stack.pop()
+                result[index] = arr[i]
+
+            stack.append(i)
+
+        return result
+
+5. Evaluate Postfix expression
+Evaluate the value of an arithmetic expression in Reverse Polish Notation.
+Valid operators are+, -, *, /.Each operand may be an integer or another expression.
+
+Test case Example :
+-------------------------
+Input :
+A. ["2", "1", "+", "3", "*"]
+B. ["4", "13", "5", "/", "+"]
+Output :
+A. ((2 + 1) * 3) = 9
+B. (4 + (13 / 5)) = 6
+
+PROGRAM:
+---------------------------------
+class Solution:
+    def evaluateRPN(self, A):
+        stack = []
+        for t in A:
+            if t not in {"+", "-", "*", "/"}:
+                stack.append(int(t))
+            else:
+                b, a = stack.pop(), stack.pop()
+                if t == "+": stack.append(a + b)
+                elif t == "-": stack.append(a - b)
+                elif t == "*": stack.append(a * b)
+                else: stack.append(a // b)
+        return stack[0]
+
+6. A water reservation system constructed in a city has several opening and closing gates.
+If any opening gates are not closed with a corresponding closing gate then the water will leak out of the system and there will be a threat to the life of people living in the city. 
+Also, the closing gate cannot exist without the opening gate, so the system head checks the design of the system and he has to ensure that the people are safe in the city.
+Write an algorithm to find whether people are safe or not.
+
+Input Format:
+----------------------------
+Take the Input as String from Stdin.
+
+Output Format:
+------------------------------
+Print the number of gates if they are safe otherwise print -1.
+
+TEST CASES:
+----------------------
+Example Input:
+(())(
+Output:
+-1
+
+Example Input:
+()()()
+
+Example Output:
+3
+
+PROGRAM:
+----------------------------
+class Stack:
+    def __init__(self):
+        self.size = 10
+        self.data = []
+        self.top = -1
+
+    def push(self, element):
+        self.data.append(element)
+        self.top += 1
+
+    def pop(self):
+        popped_element = None
+        if self.top > -1:
+            popped_element = self.data.pop()
+            self.top -= 1
+        return popped_element
+
+    def is_empty(self):
+        return self.top == -1
+
+    def is_full(self):
+        return self.top == self.size - 1
+
+class Solution:
+    
+    def __init__(self):
+        self.st = Stack()
+        self.count=0
+    def isBalanced(self, exp):
+        # write your method
+        for i in range(len(exp)):
+            if exp[i] == '(' :
+                self.st.push(exp[i])
+            elif exp[i] == ')' :
+                if self.st.is_empty() or not self.are_pair(self.st.pop(), exp[i]):
+                    return -1
+                else:
+                    self.count=self.count+1
+                
+        if(self.st.is_empty()):
+            return self.count
+        else:
+            return -1
+    @staticmethod
+    def are_pair(t, e):
+        return (t == '(' and e == ')') 
+
+str=input()
+s=Solution()
+print(s.isBalanced(str))
+
+QUEUES:
+---------------------------
+1. Write a program to create a Queue and it's operations which is given below.  Name you class as Queue. 
+In Queue class use Integer array to implement Queue. Check the code for more details.
+
+Operations:
+enque accepts an integer and adds to the Queue
+deque remove the element from Queue and prints the value which is removed.
+peek it returns the latest element from the queue
+isEmpty returns true if Queue is empty, and false otherwise
+isFull returns true if Queue is Full, and false otherwise
+
+TEST CASES:
+-----------------------------
+PROGRAM:
+-------------------------------------
+class Queue:
+    def __init__(self,size):
+        self.size=size
+        self.data = []
+    def enque(self,element):
+        self.data.append(element)
+    
+    def deque(self):
+        if(len(self.data) > 0):
+            print("deque:{0}".format(self.data.pop(0)))
+        return None
+    def isEmpty(self):
+        if(len(self.data)<1):
+            return "true"
+        else:
+            return "false"
+    def isFull(self):
+        if(len(self.data)<=size):
+            return "false"
+        else:
+            return "true"
+    def peek(self):
+        return(self.data[0])
+
+2. A queue is an abstract data type that maintains the order in which elements were added to it,
+allowing the oldest elements to be removed from the front and new elements to be added to the rear. 
+This is called a First-In-First-Out (FIFO) data structure because the first element added to the queue 
+(i.e., the one that has been waiting the longest) is always the first one to be removed.
+
+A basic queue has the following operations:
+* Enqueue: add a new element to the end of the queue.
+* Dequeue: remove the element from the front of the queue and return it.
+In this question you must first implement a queue using two stacks. Then process queries, where each query is one of the following 3 types:
+
+1. `1 x`: Enqueue element x into the end of the queue.
+2. `2`: Dequeue the element at the front of the queue.
+3. `3`: Print the element at the front of the queue.
+
+Test case Example :
+------------------------------
+Input :
+10
+1 42
+2
+1 14
+3
+1 28
+3
+1 60
+1 78
+2
+2
+Output :
+14
+14
+
+PROGRAM:
+-------------------------
+class Solution:
+    def __init__(self):
+        self.s1 = []
+        self.s2 = []
+    def implementQueue(self, Query):
+        a=[]
+        # write your method here
+        for q in Query:
+            if q[0]==1:
+                self.enQueue(q[1])
+            elif q[0]==2:
+                self.deQueue()
+            elif q[0]==3:
+                a.append(self.peek())
+        return(a)
+    def enQueue(self, x):
+         
+        # Move all elements from s1 to s2 
+        while len(self.s1) != 0: 
+            self.s2.append(self.s1[-1]) 
+            self.s1.pop()
+ 
+        # Push item into self.s1 
+        self.s1.append(x) 
+ 
+        # Push everything back to s1 
+        while len(self.s2) != 0: 
+            self.s1.append(self.s2[-1]) 
+            self.s2.pop()
+ 
+    # Dequeue an item from the queue 
+    def deQueue(self):
+         
+            # if first stack is empty 
+        if len(self.s1) == 0: 
+            return -1;
+     
+        # Return top of self.s1 
+        x = self.s1[-1] 
+        self.s1.pop() 
+        return x
+    
+    def peek(self):
+         
+            # if first stack is empty 
+        if len(self.s1) == 0: 
+            return -1;
+     
+        # Return top of self.s1 
+        x = self.s1[-1] 
+        return x
+
+LINKEDLIST:
+--------------------------
+1. Implement a LinkedList and its Operations.
+Create a LinkedList with methods given below.
+Methods:
+----------------------
+insert To insert the value at last in the linked list.
+remove To remove the element from LinkedList.
+Search To search the element in LinkedList whether the value is present or not (it is boolean method)
+insertIndex: To insert the element at particular index.
+displayTo display the entire List.
+Note:Name of your list must be LinkedList.
+
+Test case Example:
+---------------------------
+Insert: 1
+Insert: 1
+Insert: 1
+Search for 1. Found: true
+Display:
+1 1 1 
+
+PROGRAM:
+------------------------------------------
+class Node:
+    def __init__(self,data=None):
+        self.data=data
+        self.next=None
+
+### write LinkedList class below this line ##
+
+class LinkedList: 
+    # Function to initialize head 
+    def __init__(self): 
+        self.head = None
+    def insert(self,data) :
+        tempNode = Node(data)
+        current = self.head
+
+        # If the Linked List is empty, then make the temp node as head
+        if self.head is None:
+            self.head = tempNode
+            return
+
+        # Traverse the whole linked list till current points to the last node
+        while current.next is not None:
+            current = current.next
+
+        # Update the next pointer of the last node to point to the temp node
+        current.next = tempNode
+
+    def remove(self,key):
+        temp = self.head
+
+        # If the node to be deleted is the first node.
+        if temp is not None and temp.data == key:
+            self.head = temp.next
+            return
+
+        # Search for the element to be deleted and maintain prev_node of the node
+        # to be deleted.
+        prev = None
+        while temp is not None and temp.data != key:
+            prev = temp
+            temp = temp.next
+
+        # If linked list doesn't contain the key
+        if temp is None:
+            return
+
+        # Change next of prev_node to point to next of the node to be deleted.
+        prev.next = temp.next  
+
+    def Search(self,data):
+        current = self.head
+        while current is not None:
+            if current.data == data:
+                return "true"
+            current = current.next
+        return "false"
+    
+    def insertIndex(self,idx,data) :
+        tempNode = Node(data)
+        current = self.head
+        prev = None
+        p = 0
+        while p != idx and current is not None:
+            prev = current
+            current = current.next
+            p += 1
+        tempNode.next = current
+        if prev is not None:
+            prev.next = tempNode
+        else:
+            self.head = tempNode   
+        
+    def display(self):
+        current = self.head
+       
+        while current is not None:
+            print(current.data,end=" ")
+            current = current.next
+        
+
+
+
+
+
+### write LinkedList class above this line ##
+
+if __name__ == "__main__": 
+    test_cases=int(input()) # number of test cases
+    myList=LinkedList()
+
+    while(test_cases>0):
+        instruction=int(input()) # current instruction
+        ####
+        # 1 means insertion
+        # 2 means remove value
+        # 3 means search value
+        # 4 means insert at particular index
+        # 5 means display entire list
+        ####
+
+        if(instruction==1): 
+            val=int(input())
+            print(f'Insert: {val}')
+            myList.insert(val)
+        elif (instruction==2):
+            val=int(input())
+            print(f'Delete: {val}')
+            myList.remove(val)
+        elif (instruction==3):
+            val=int(input())
+            print(f'Search for {val}. Found: {myList.Search(val)}')
+        elif(instruction==4):
+            index=int(input())
+            val=int(input())
+            print(f'Insert {val} at index {index}')
+            myList.insertIndex(index,val)
+        elif(instruction==5):
+            print('Display:')
+            myList.display()
+            print()
+        
+        test_cases=test_cases-1
+
+
+2. Given the pointer to the head node of a linked list, an integer to add to the list and the position at which the integer must be inserted.
+Create a new node with the given integer, insert this node at the desired position and return the head node.
+A position of 0 indicates head, a position of 1 indicates one node away from the head and so on.
+
+Note: The head pointer given may be null meaning that the initial list is empty.
+
+Test case Example :
+--------------------------------
+Input :
+A. 1->2->3
+position = 2
+data = 4
+
+Output :
+A. 1->2->4->3
+
+PROGRAM:
+-------------------------
+class LLNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+class Solution:
+    def display(self,head):
+        current = head
+        while current is not None:
+            print(current.val, end=" ")
+            current = current.next
+            
+    def insert(self, data):
+        tempNode = Node(data)
+        current = self.head
+
+        # If the Linked List is empty, then make the temp node as head
+        if self.head is None:
+            self.head = tempNode
+            return
+
+        # Traverse the whole linked list till current points to the last node
+        while current.next is not None:
+            current = current.next
+
+        # Update the next pointer of the last node to point to the temp node
+        current.next = tempNode
+    def insertNodeAtPosition(self, head, data, position):
+        # write your method here
+        tempNode = LLNode(data)
+        current = head
+        prev = None
+        p = 0
+        while p != position and current is not None:
+            prev = current
+            current = current.next
+            p += 1
+        tempNode.next = current
+        if prev is not None:
+            prev.next = tempNode
+        else:
+            head = tempNode
+        self.display(head)   
+    
+      TREES:
+-----------------------------
+1.Given a binary tree, return the preorder traversal of its nodes’ values.
+
+Example :
+Input :
+Given binary tree
+        1
+         \
+          2
+         /
+        3
+ 
+The input is presented as:
+1 -1 2 3 -1 -1 -1 (here -1 represents null)
+
+Please note that the above is only a representation of the input. In the answer, please use the head node to traverse through the tree
+
+TEST CASES:
+-------------------
+INPUT:
+Output :
+[1, 2, 3]
+
+PROGRAM:
+------------------------------
+class Solution:
+    def preorderTraversal(self, A):
+        l=[]
+        if A:
+            l.append(A.val)
+            l.extend(Solution().preorderTraversal(A.left))
+            l.extend(Solution().preorderTraversal(A.right))
+        return(l)
+
+2. Given a binary tree, return the inorder traversal of its nodes’ values.
+
+Example :
+Input :
+Given binary tree
+
+1
+ \
+  2
+ /
+3
+The input is presented as:
+1 -1 2 3 -1 -1 -1 (here -1 represents null)
+
+Please note that the above is only a representation of the input. In the answer, please use the head node to traverse through the tree
+
+TEST CASES:
+-------------------------
+Output :
+[1, 3, 2]
+
+PROGRAM:
+---------------------------
+class Solution:
+    def inorderTraversal(self, A):
+        # write your method here
+        l=[]
+        if A:
+            l.extend(Solution().inorderTraversal(A.left))
+            l.append(A.val)
+            l.extend(Solution().inorderTraversal(A.right))
+        return(l)
+
+3. Given a binary tree, return the postorder traversal of its nodes’ values.
+
+Note: Using recursion is not allowed.
+Example :
+Input :
+Given binary tree
+
+1
+ \
+  2
+ /
+3
+The input is presented as:
+1 -1 2 3 -1 -1 -1 (here -1 represents null)
+
+Please note that the above is only a representation of the input. In the answer, please use the head node to traverse through the tree
+
+Output :
+[3, 2, 1]
+
+PROGRAM:
+----------------------------
+class Solution:
+    def postorderTraversal(self, A):
+        # write your method here
+        l=[]
+        if A:
+            l.extend(Solution().postorderTraversal(A.left))
+            l.extend(Solution().postorderTraversal(A.right))
+            l.append(A.val)
+        return(l)
+
+4. Given a root node reference of a BST and a key, delete the node with the given key in the BST.
+Return the root node reference (possibly updated) of the BST.
+
+Basically, the deletion can be divided into two stages:
+
+Search for a node to remove.
+If the node is found, delete the node.
+Note: Time complexity should be O(height of tree).
+
+Test case Example :
+----------------------------
+Input :
+    
+         5
+        / \
+       3   6
+      / \   \
+     2   4   7
+ 
+key = 3
+
+Output :
+    one valid answer is  
+        5
+       / \
+      4   6
+     /     \
+    2       7
+ 
+    another valid answer
+       5
+      / \
+      2   6
+       \   \
+        4   7
+    you can do any of them.
+
+PROGRAM:
+----------------------------
+class Solution:
+    def deleteNode(self, root, key):
+        # base case: if the tree is empty
+        if root is None:
+            return root
+
+        # If the key is smaller than the root's key, then it lies in the left subtree
+        if key < root.val:
+            root.left = self.deleteNode(root.left, key)
+
+        # If the key is larger than the root's key, then it lies in the right subtree
+        elif key > root.val:
+            root.right = self.deleteNode(root.right, key)
+
+        # If key is the same as root's key, then this is the node to be deleted
+        else:
+            # Node with only one child or no child
+            if root.left is None:
+                temp = root.right
+                return temp
+            elif root.right is None:
+                temp = root.left
+                return temp
+
+            # Node with two children: Get the inorder successor (smallest in the right subtree)
+            temp = self.minValueNode(root.right)
+
+            # Copy the inorder successor's content to this node
+            root.val = temp.val
+
+            # Delete the inorder successor
+            root.right = self.deleteNode(root.right, temp.val)
+
+        return root
+
+    def minValueNode(self, node):
+        current = node
+        # Loop down to find the leftmost leaf
+        while current.left is not None:
+            current = current.left
+        return current
+
