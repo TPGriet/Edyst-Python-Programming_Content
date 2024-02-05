@@ -1,1 +1,95 @@
+BASIC PRINTING
+--------------------------
+1. Write a program that prints Hello World using Python
+
+TEST CASES:
+---------------------------
+Example Output
+Hello World
+
+PROGRAM:
+----------------------------
+print("Hello World")
+
+2. Write a program that prints Hello Edyst using Python
+
+TEST CASES:
+-------------------------
+Example Output
+Hello Edyst
+
+PROGRAM:
+----------------------------
+print("Hello Edyst")
+
+FUN WITH PRINTING:
+----------------------------
+1. Using the format method, print the following statement by substituting the name of friends:
+
+TEST CASES:
+---------------------------
+Alex, Laxmi and Jay went to the party
+
+PROGRAM:
+--------------------------
+n1="Alex"
+n2="Laxmi"
+n3="Jay"
+print("{0}, {1} and {2} went to the party ".format(n1,n2,n3))
+
+2. Using the concept of f-strings, print the following statement by substituting the ages:
+
+TEST CASES:
+------------------------
+Riya's age is 5
+Mahesh is 10
+And their best friend, Arjun, is 12
+
+PROGRAM:
+--------------------------
+n1="Riya"
+age1="5"
+n2="Mahesh"
+age2="10"
+n3="Arjun"
+age3="12"
+print(f"{n1}\'s age is {age1}")
+print(f"{n2} is {age2}")
+print(f"And their best friend, {n3}, is {age3}")      
+
+3. Using the concept of f-strings, print the following statement by substituting the name of countries and capitals:
+
+TEST CASES:
+-----------------------------
+New Delhi is the capital of India
+Madrid is the capital of Spain
+
+PROGRAM:'
+--------------------------------
+ctry1="India"
+Cap1="New Delhi"
+ctry2="Spain"
+cap2="Madrid"
+print(f"{Cap1} is the capital of {ctry1}")
+print(f"{cap2} is the capital of {ctry2}")
+
+4. Using the concept of escape sequences, print the following statement:
+
+TEST CASES:
+----------------------------
+She asked, "What's your name?"
+
+PROGRAM:
+------------------------------
+print("She asked, \"What's your name?\"")
+
+5. Using the concept of escape sequences, print the following statement:
+
+TEST CASES:
+-----------------------------
+Python is \awesome\
+
+PROGRAM:
+-----------------------
+print("Python is \\awesome\\")
 
