@@ -1,1 +1,214 @@
+STACKS:
+-------------------------------
+1. Write a program to implement the following operations in a Stack:
 
+Operations:
+
+push:       To add the elements into Stack
+pop:         To remove the element from Stack and return the element.
+peek:        To get the top element from the Stack and return the element.
+isEmpty:   returns 1 is stack is empty. Else returns 0
+isFull:       returns 1 is stack is full. Else returns 0
+Some code has already been written. Please use the given structure / class to write your own functions
+
+TEST CASES:
+------------------------------
+PROGRAM:
+------------------------------
+class Stack:
+    def __init__(self,size):
+        self.size=size
+        self.data = []
+        self.top = -1
+    def push(self, element):
+        self.data.append(element)
+        self.top = self.top + 1
+    def pop(self):
+        popped_element = None
+        if(self.top>-1):
+            popped_element = self.data.pop() 
+            self.top = self.top - 1
+        return popped_element
+    def isEmpty(self):
+        if self.top==-1:
+            return 1
+        else:
+            return 0
+    def isFull(self):
+        if self.top==size-1:
+            return 1
+        else:
+            return 0
+    def peek(self):
+        if(self.isEmpty()):
+            print("No elements in Stack")
+        else:
+            return(self.data[self.top])
+    
+
+
+if __name__ == "__main__": 
+    
+    test_cases=int(input()) # number of test cases
+    size=int(input()) # size of Stack
+    stack=Stack(size) # creating new stack object
+    
+    while(test_cases>0): 
+        instruction=input().split()
+        val=0
+        if len(instruction)>1:
+            val=int(instruction[1])
+
+        instruction=int(instruction[0])
+        #####
+        # Instruction 1 means Push
+        # Instruction 2 means Pop
+        # Instruction 3 means Peek
+        # Instruction 4 means isEmpty
+        # Instruction 5 means isFull
+        #####
+
+        if(instruction==1):  
+            print(f'push:{val}')
+            stack.push(val)
+
+        elif (instruction==2):
+            print(f'pop:{stack.pop()}')
+
+        elif (instruction==3):            
+            print(f'peek:{stack.peek()}')
+
+        elif(instruction==4):
+            print(f'isEmpty:{stack.isEmpty()}')
+
+        elif(instruction==5):
+            print(f'isFull:{stack.isFull()}')
+        test_cases=test_cases-1 
+
+2. A bracket is considered to be any one of the following characters: (, ), {, }, [, or ].
+Two brackets are considered to be a matched pair if the an opening bracket (i.e., (, [, or {) occurs to the left of a closing bracket 
+(i.e., ), ], or }) of the exact same type. There are three types of matched pairs of brackets: [], {}, and ().
+A matching pair of brackets is not balanced if the set of brackets it encloses are not matched. For example, 
+{[(])} is not balanced because the contents in between { and } are not balanced. The pair of square brackets encloses a single, 
+unbalanced opening bracket, (, and the pair of parentheses encloses a single, unbalanced closing square bracket, ].
+By this logic, we say a sequence of brackets is balanced if the following conditions are met:
+
+It contains no unmatched brackets.
+The subset of brackets enclosed within the confines of a matched pair of brackets is also a matched pair of brackets.
+Given a string s, determine whether s is balanced.
+If a string is balanced, return 1. Otherwise, return 0.
+
+Test case Example :
+-----------------------------
+Input :
+A : {[()]}
+B : {[(])}
+Output :
+A : 1
+B : 0
+
+PROGRAM:
+--------------------------
+class Stack:
+    def __init__(self):
+        self.size = 10
+        self.data = []
+        self.top = -1
+
+    def push(self, element):
+        self.data.append(element)
+        self.top += 1
+
+    def pop(self):
+        popped_element = None
+        if self.top > -1:
+            popped_element = self.data.pop()
+            self.top -= 1
+        return popped_element
+
+    def is_empty(self):
+        return self.top == -1
+
+    def is_full(self):
+        return self.top == self.size - 1
+class Solution:
+    def __init__(self):
+        self.st = Stack()
+    def isBalanced(self, exp):
+        # write your method
+        for i in range(len(exp)):
+            if exp[i] == '(' or exp[i] == '{' or exp[i] == '[':
+                self.st.push(exp[i])
+            elif exp[i] == ')' or exp[i] == '}' or exp[i] == ']':
+                if self.st.is_empty() or not self.are_pair(self.st.pop(), exp[i]):
+                    return 0
+        return 1
+
+    @staticmethod
+    def are_pair(t, e):
+        return (t == '(' and e == ')') or (t == '{' and e == '}') or (t == '[' and e == ']')
+
+3. While us humans can understand how to calculate a simple mathematical expression like 2 + 3 * 7 - 9 / 5, 
+computers use a special technique to make it easier for them. They convert an infix expression to a postfix expression.
+An infix expression is one in which all the operators (+,-,*,/) appear between operands, just like our usual expressions.
+A postifx expression is one in which all the operands appear first, and the operators appear after the operands.
+Write a class Fixes that has 2 strings infix and postfix. It should have a parameterized constructor to accept the value of infix.
+Also, it should have a method called convert that converts the infix to a postfix expression and stores it in the postfix.
+Write only the Fixes class. Main class has already been written.
+
+Hint: Check google for tutorials on infix to postfix conversion first. Then write the code for it.
+Note: all operands will be of single digit only
+
+Test case Example:
+---------------------------
+Input:
+2+3*7-9/5
+Output:
+237*+95/-
+Example Input:
+(2+3)*7-9/2^1
+Output:
+23+7*921^/-
+
+PROGRAM:
+------------------------
+Operators = set(['+', '-', '*', '/', '(', ')', '^'])  # collection of Operators
+Priority = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
+
+class Fixes:
+    def __init__(self, exp):
+        self.expression = exp.strip()
+        self.stack = []
+        self.postfix = ''
+
+    def convert(self):
+        for character in self.expression:
+            if character not in Operators:
+                self.postfix += character
+            elif character == '(':
+                self.stack.append('(')
+            elif character == ')':
+                while self.stack and self.stack[-1] != '(':
+                    self.postfix += self.stack.pop()
+                self.stack.pop()
+            else:
+                while self.stack and self.stack[-1] != '(' and Priority[character] <= Priority[self.stack[-1]]:
+                    self.postfix += self.stack.pop()
+                self.stack.append(character)
+
+        while self.stack:
+            self.postfix += self.stack.pop()
+
+
+## write Fixes class above this line ##
+
+testcases = int(input())
+for _ in range(testcases):
+    equation = input()
+    fix = Fixes(equation)
+    print(f'Infix: {equation}')
+    fix.convert()
+    print(f'Postfix: {fix.postfix}')
+    print('---')
+
+4. 
