@@ -87,7 +87,8 @@ def solve(sales_list):
     sales_list.pop(-3)
     return(sales_list)
 
-5. Given a list of integers, Stanley wants to insert a new integer into the list in a very different way. The new integer's value is same as the first value of the list, and it's index is also same as the first value.
+5. Given a list of integers, Stanley wants to insert a new integer into the list in a very different way. 
+The new integer's value is same as the first value of the list, and it's index is also same as the first value.
 
 Example, in a list [3, 1, 0, 2], Stanley will insert 3 and make the new list like this: [3, 1, 0, 3, 2]
 
@@ -221,7 +222,9 @@ def solve(A):
     print("Maximum:{0}".format(max(A)))
     print("Sum:{0}".format(sum(A)))
 
-11. Complete the given method solve. You are given a list A and also a key. You have to print the index of the key value if it is present in A, otherwise you must print Does not exist
+11. Complete the given method solve. You are given a list A and also a key. 
+You have to print the index of the key value if it is present in A,
+otherwise you must print Does not exist
 
 TEST CASES:
 -----------------------
