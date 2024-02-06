@@ -78,6 +78,17 @@ A to C
 
 PROGRAM:
 ---------------------------------
+class Solution:
+    def Met(self, discs, start, helper, destination):
+        # write your method here
+        s=Solution()
+        if discs==1:
+            print (start,"to",destination)
+            return
+        s.Met(discs-1, start,destination,helper)
+        print (start,"to",destination)
+        s.Met(discs-1, helper,start, destination )
+
 
 SORTING 2:
 -----------------------
