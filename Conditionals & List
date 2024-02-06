@@ -253,7 +253,8 @@ def solve(num):
     else:
         print("Not Crazy")
 
-11. Complete the given method solve that takes as parameter an integer value. Print Fizz if it is a multiple of 3, Buzz if it is a multiple of 5 and FizzBuzz if it is a multiple of both 3 and 5. Otherwise, print the number itself.
+11. Complete the given method solve that takes as parameter an integer value. Print Fizz if it is a multiple of 3, 
+Buzz if it is a multiple of 5 and FizzBuzz if it is a multiple of both 3 and 5. Otherwise, print the number itself.
 
 Example Input: 27
 Output: Fizz
@@ -276,13 +277,17 @@ def solve(num):
     else:
         print(num)
 
-12. Tomorrow is the local picnic day and the parents are excited to take their children to the park. The organizers are giving some chocolates to the children. We know that every family has 2 children.
+12. Tomorrow is the local picnic day and the parents are excited to take their children to the park. 
+The organizers are giving some chocolates to the children. We know that every family has 2 children.
 
-The organizers will give chocolates corresponding to the age of the children. So a family with a four-year old and a 7-year old child will get 11 chocolates.
+The organizers will give chocolates corresponding to the age of the children.
+So a family with a four-year old and a 7-year old child will get 11 chocolates.
 
-However, if any of the child in that family is a teenager (between 13 to 19 inclusive), then that family receives a total of 40 chocolates.
+However, if any of the child in that family is a teenager (between 13 to 19 inclusive), 
+then that family receives a total of 40 chocolates.
 
-Complete the method solve that takes as parameters 2 integers, each storing the age of a child. You have to print the number of chocolates the family will get.
+Complete the method solve that takes as parameters 2 integers, each storing the age of a child. 
+You have to print the number of chocolates the family will get.
 
 Example Input: 4 7
 Output: 11
@@ -303,7 +308,8 @@ def solve(num1,num2):
 
 13. Pooja just got a new cellphone. She carries it everywhere, even to her morning college classes.
 
-She normally answers calls, except in the morning. In the morning she answers only if her Mom calls. However she never answers any calls when she is sleeping.
+She normally answers calls, except in the morning. In the morning she answers only if her Mom calls. 
+However she never answers any calls when she is sleeping.
 
 Complete the method solve, that takes in 3 boolean parameters:
 
@@ -370,7 +376,8 @@ def solve(string):
     else:
         print(string)
 
-15. Complete the method solve that takes in 3 integers as parameters. You have to print True if any integer is the sum of the other 2 integers. Otherwise, print False.
+15. Complete the method solve that takes in 3 integers as parameters. 
+You have to print True if any integer is the sum of the other 2 integers. Otherwise, print False.
 
 Example Input: 2 3 5
 Output: True
@@ -388,7 +395,9 @@ def solve(num1,num2,num3):
     else:
         print("False")
 
-16. Dwight is laying down a row of bricks whose length is target inches. Dwight has 2 types of bricks: small bricks (1 inch each) and big bricks (5 inch each). He wants to know if the number of small bricks and big bricks he has is enough.
+16. Dwight is laying down a row of bricks whose length is target inches.
+Dwight has 2 types of bricks: small bricks (1 inch each) and big bricks (5 inch each).
+He wants to know if the number of small bricks and big bricks he has is enough.
 
 If a brick is being used, it has to be used fully and not in parts.
 
@@ -432,11 +441,14 @@ def solve(target,big_bricks,small_bricks):
         else:
             print("Impossible")
 
-17. Jim has recently started gambling. He plays Number BlackJack. In this game, the players draw numbered cards and whoever has a value closer to 21 wins. However, if the number goes over 21 then both lose. If both have the same value, then also both of them lose.
+17. Jim has recently started gambling. He plays Number BlackJack. In this game, 
+the players draw numbered cards and whoever has a value closer to 21 wins. However, if the number goes over 21 then both lose.
+If both have the same value, then also both of them lose.
 
 Given the values possessed by 2 players, you have to tell us who wins.
 
-Complete the given function solve that takes input 2 integers: the first integer is Player 1's value and 2nd integer is Player2's value. You have to print Player1 if Player1 wins, Player2 if Player2 wins and Rematch if both lose.
+Complete the given function solve that takes input 2 integers: the first integer is Player 1's value and 2nd integer is Player2's value. 
+You have to print Player1 if Player1 wins, Player2 if Player2 wins and Rematch if both lose.
 
 Example Input: 14 18
 Output: Player2
@@ -461,9 +473,12 @@ def solve(num1,num2):
 
 18. Jim is now playing some dice games. In this game, 2 dice are rolled.
 
-The score is calculated by summing the value on the 2 dice. However, when playing in special mode, if the number on both dice are equal, then one value is incremented, wrapping around to 1 if its value was 6.
+The score is calculated by summing the value on the 2 dice. However, when playing in special mode, 
+if the number on both dice are equal, then one value is incremented, wrapping around to 1 if its value was 6.
 
-Complete the given function solve to calculate the score. The parameters are 2 integers and 1 boolean. Each integer has the value of one of the dice. The boolean is true if the special mode is being played, otherwise it is false. You have to print the score depending on the values.
+Complete the given function solve to calculate the score. The parameters are 2 integers and 1 boolean. 
+Each integer has the value of one of the dice. The boolean is true if the special mode is being played, otherwise it is false.
+You have to print the score depending on the values.
 
 Example Input: 4 3 false
 Output: 7
@@ -490,7 +505,8 @@ def solve(num1,num2,special_mode):
         sum=num1+num2
     print(sum)    
 
-19. We are going to play a game called 6's twist. In this, we take 2 numbers and print the larger number. However, if the 2 values have the same remainder when divided by 6, then we print the smaller value. However, in all cases, if the two values are the same, we print 0.
+19. We are going to play a game called 6's twist. In this, we take 2 numbers and print the larger number. However, 
+if the 2 values have the same remainder when divided by 6, then we print the smaller value. However, in all cases, if the two values are the same, we print 0.
 
 Complete the function solve that takes in 2 integer values and prints the result as per 6's treat.
 
@@ -515,9 +531,11 @@ def solve(num1,num2):
     else:
         print(num2 if num1<num2 else num1)
 
-20. You have recently seen a motivational sports movie and want to start exercising regularly. Your coach tells you that it is important to get up early in the morning to exercise. She sets up a schedule for you:
+20. You have recently seen a motivational sports movie and want to start exercising regularly.
+Your coach tells you that it is important to get up early in the morning to exercise. She sets up a schedule for you:
 
-On weekdays (Monday - Friday), you have to get up at 5:00. On weekends (Saturday & Sunday), you can wake up at 6:00. However, if you are on vacation, then you can get up at 7:00 on weekdays and 9:00 on weekends.
+On weekdays (Monday - Friday), you have to get up at 5:00. On weekends (Saturday & Sunday), you can wake up at 6:00. 
+However, if you are on vacation, then you can get up at 7:00 on weekdays and 9:00 on weekends.
 
 Write a program to print the time you should get up.
 
@@ -526,7 +544,8 @@ Input Format:
 The first line contains n - the number of inputs.
 Following that are n lines, each containing an integer and a boolean value.
 
-The integer tells you the day it is (1-Sunday, 2-Monday, 3-Tuesday, 4-Wednesday, 5-Thursday, 6-Friday, 7-Saturday). The boolean is true if you are on vacation and false if you’re not on vacation.
+The integer tells you the day it is (1-Sunday, 2-Monday, 3-Tuesday, 4-Wednesday, 5-Thursday, 6-Friday, 7-Saturday). 
+The boolean is true if you are on vacation and false if you’re not on vacation.
 
 You have to print the time you should get up.
 
