@@ -1,1 +1,562 @@
+1. The Boy Class:
+-----------------------
+Define a Boy class with the following methods, that will be called by it's objects:
+
+say_hello - prints the message Hi! Welcome to the game!
+say_time - it should accept as parameter the hour and minute and say the time, like this: It has been 7 hours and 20 minutes
+Write only the Boy class. The remaining code has already been written.
+
+TEST CASES:
+-------------------
+PROGRAM:
+--------------------
+class Boy: 
+    def say_hello(self):
+        print("Hi! Welcome to the game!")
+    def say_time(self,hh,mm):
+        print("It has been {} hours and {} minutes".format(hh,mm))
+
+
+boy1 = Boy()
+
+boy1.say_hello()
+
+hour = int(input())
+minute = int(input())
+
+boy1.say_time(hour, minute)
+
+2. The Warrior Class
+---------------------------
+Define the Warrior class with the following methods, that will be called by it's objects:
+
+say_hello - prints the message Argh! I am a Warrior!
+roar - accepts as parameter a number, and prints a roar that many times.
+Example: warrior1.roar(5) prints RoarRoarRoarRoarRoar where warrior1 is an object of type Warrior
+Write only the Warrior class. The remaining code has already been written.
+
+TEST CASES:
+---------------------
+PROGRAM:
+-------------------------
+class Warrior:
+    def say_hello(self):
+        print("Argh! I am a Warrior!")
+    def roar(self,n):
+        for i in range(1,n+1):
+            print("Roar",end='')
+
+
+warrior1 = Warrior()
+warrior1.say_hello()
+times = int(input())
+warrior1.roar(times)
+
+3. The Elf Class:
+----------------------------
+Define the Elf class with the following methods, that will be called by it's objects:
+
+say_hello - prints the message Howdy, elf here!
+magic - accepts as parameter a number n, and returns the factorial of the number n
+Write only the Elf class. The remaining code has already been written.
+
+TEST CASES:
+---------------------
+PROGRAM:
+------------------------------
+class Elf:
+    def say_hello(self):
+        print("Howdy, elf here!")
+    def magic(self,n):
+        fact=1
+        for i in range(1, n+1):
+            fact = fact * i
+        return(fact)   
+
+elf1 = Elf()
+
+elf1.say_hello()
+
+n = int(input())
+magical_number  = elf1.magic(n)
+print("Magical number is", magical_number)
+
+4. Calculator Class:
+-----------------------------------
+Let us now write our very own Calculator class.
+
+Each object of this class should have the following methods:
+
+sum - accepts as parameter a list of numbers and returns the sum of all the numbers
+minus - accepts as parameter only two numbers: first a and then b. It must return a - b
+multiply - accepts as parameter 4 numbers in the form of a list and returns the products of all 4 numbers
+divide - accepts as parameter only two numbers: first a and then b. It must return a // b. If b is 0, it return Div by 0 not allowed!
+Write only the Calculator class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+---------------------------
+PROGRAM:
+----------------------------------------
+class Calculator:
+    def sum(self,n):
+        s=0
+        for num in n:
+            s=s+num
+        return s
+    def minus(self,a,b):
+        return(a-b)
+    def multiply(self,n):
+        result = 1
+        for num in n:
+            result *= num
+        return result
+    def divide(self, a, b):
+        if b == 0:
+            return "Div by 0 not allowed!"
+        return a // b
+
+
+calc = Calculator()
+
+first = int(input())
+second = int(input())
+third = int(input())
+fourth = int(input())
+fifth = int(input())
+
+sum_list = [first,second,third,fourth,fifth]
+answer_1 = calc.sum(sum_list)
+print(f"Sum of {sum_list} is {answer_1}")
+
+answer_2 = calc.minus(first,second)
+print(f"{first} - {second} = {answer_2}")
+
+answer_3 = calc.multiply(sum_list[:-1]) # selecting only first 4 values
+print(f"Multiplying {sum_list[:-1]} = {answer_3}")
+
+answer_4 = calc.divide(fourth,fifth)
+print(f"Dividing {fourth}/{fifth} = {answer_4}")
+
+METHODS:
+---------------------------------
+1. Initialize Boy object
+-----------------------
+Write a class called Boy . The __init__ method should initialize the properties clothes and mood . Both these properties are strings
+Write only the Boy class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+-------------------------
+PROGRAM:
+----------------------------
+class Boy:
+    def __init__(self,clothes,mood):
+        self.clothes=clothes
+        self.mood=mood
+
+clothes = input()
+mood = input()
+
+boy1 = Boy(clothes,mood)
+
+print(f"boy1's cloths are {boy1.clothes} and mood is {boy1.mood}")
+
+2. Initialize Boy object with speed
+-----------------------------------
+Write a class called Boy .
+
+The __init__ method should initialize the properties clothes , mood and speed. clothes and mood are strings; speed is an integer
+Objects of this class should have a method called accelerate which increases the speed of the Boy object by 10
+Write only the Boy class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+--------------------------
+PROGRAM:
+------------------------------------------
+class Boy:
+    def __init__(self,clothes,mood,speed):
+        self.clothes=clothes
+        self.mood=mood
+        self.speed=speed
+    def accelerate(self):
+        self.speed=self.speed+10
+
+clothes = input()
+mood = input()
+speed = int(input())
+
+boy1 = Boy(clothes,mood,speed)
+
+print(f"boy1's cloths are {boy1.clothes} and mood is {boy1.mood}")
+print(f"boy1's current speed is {boy1.speed}")
+
+boy1.accelerate()
+print(f"After acceleration, boy1's speed is {boy1.speed}")
+
+3. Initialize Warrior object
+---------------------------------
+Write a class called Warrior  
+
+The __init__ method should initialize the properties name and attack. name is a string; attack is a boolean value which says if current object is attacking or not
+Write only the Warrior class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+-------------------------
+PROGRAM:
+-------------------------
+class Warrior:
+    def __init__(self,name,attack):
+        self.name=name
+        self.attack=attack
+
+def bool_convert(line):
+    if(line == "True"):
+        line = True
+    else:
+        line = False
+    return line
+
+name = input()
+attack = bool_convert(input())
+
+warrior1 = Warrior(name, attack)
+
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+
+4. Initialize Warrior object with varying damage
+-------------------------
+Write a class called Warrior  
+
+The __init__ method should initialize the properties name ,attack and strength.
+name is a string; attack is a boolean value which says if current object is attacking or not.
+strength is an integer
+Additionally it should have a method called damage. The damage method returns the amount of damage done by the given Warrior object. Use the table below to determine the amount of damage done
+
+attack	  strength	               damage
+False	      any                    value	0
+True	      0	                        0
+True	 1 to 10 (both inclusive)      	20
+True	 11 to 20 (both inclusive)    	30
+True	 Greater than 20	              100
+
+Write only the Warrior class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+------------------------
+PROGRAM:
+-------------------------
+class Warrior:
+    def __init__(self,name,attack,strength):
+        self.name=name
+        self.attack=attack
+        self.strength=strength
+    def damage(self):
+        if self.attack==False:
+            return 0
+        else:
+            if(self.strength==0):
+                return 0
+            elif(1<=self.strength<=10):
+                return 20
+            elif(11<=self.strength<=20):
+                return 30
+            else:
+                return 100
+
+def bool_convert(line):
+    if(line == "True"):
+        line = True
+    else:
+        line = False
+    return line
+
+name = input()
+attack = bool_convert(input())
+strength = int(input())
+
+warrior1 = Warrior(name, attack, strength)
+
+name = input()
+attack = bool_convert(input())
+strength = int(input())
+
+warrior2 = Warrior(name, attack, strength)
+
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+print(f"warrior1's damage is {warrior1.damage()}")
+print("----")
+
+print(f"warrior2's name is {warrior2.name}. Is attacking? {warrior2.attack}")
+print(f"warrior2's damage is {warrior2.damage()}")
+print("----")
+
+5. The Box Class
+--------------------------
+Write the Box class. Every Box object must have height, width and breadth.
+
+Write the __init__ method that initializes these values
+Also write a method volume that returns the volume of the box
+Write only the Box class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+-------------------------
+class Box:
+    def __init__(self,height,width,breadth):
+        self.height=height
+        self.width=width
+        self.breadth=breadth
+    def volume(self):
+        return(self.height*self.width*self.breadth)
+
+height = int(input())
+width = int(input())
+breadth = int(input())
+
+box1 = Box(height,width,breadth)
+
+print(f"box1 of height: {box1.height}, width: {box1.width} and breadth: {box1.breadth}")
+print(f"box1 has volume: {box1.volume()}")
+
+6. Change Warrior Name
+---------------------------------
+Write a class called Warrior  
+
+The __init__ method should initialize the properties name and attack. name is a string; attack is a boolean value which says if current object is attacking or not
+Also write a method called updateName . This toggles the case for each character in the name string of the given Warrior object and updates the name. 
+eg, if warrior1.name is Apollo then warrior1.updateName() will make warrior1.name as aPOLLO
+Write only the Warrior class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+------------------------
+PROGRAM:
+------------------------------------
+class Warrior:
+    def __init__(self,name,attack):
+        self.name=name
+        self.attack=attack
+        
+    def updateName(self):
+        updated_name = ''.join([char.lower() if char.isupper() else char.upper() for char in self.name])
+        self.name = updated_name
+            
+
+def bool_convert(line):
+    if(line == "True"):
+        line = True
+    else:
+        line = False
+    return line
+
+name = input()
+attack = bool_convert(input())
+warrior1 = Warrior(name, attack)
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+warrior1.updateName()
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+warrior1.updateName()
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+
+
+7. Boy vs Warrior pt. 1
+----------------------------------------
+Write a class called Warrior  
+
+The __init__ method should initialize the properties name and attack. name is a string; attack is a boolean value which says if current object is attacking or not
+Also write a method called myEnemy. This method accepts as parameter an object of Boy class. (You can refer to the Boy class given below.) 
+The method outputs the following: My name is [Warrior Name] and my enemy is [Boy Name] where Warrior Name and Boy Name are names of the Warrior and Boy object, respectively
+Write only the Warrior class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES
+-----------------------
+PROGRAM:
+----------------------------
+class Warrior:
+    def __init__(self,name,attack):
+        self.name=name
+        self.attack=attack
+    def myEnemy(self,boy1):
+        print(f"My name is [{self.name}] and my enemy is [{boy1.name}]")
+
+class Boy:
+    def __init__(self,name):
+        self.name = name
+
+def bool_convert(line):
+    if(line == "True"):
+        line = True
+    else:
+        line = False
+    return line
+
+name = input()
+attack = bool_convert(input())
+warrior1 = Warrior(name, attack)
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+boy_name = input()
+boy1 = Boy(boy_name)
+warrior1.myEnemy(boy1)
+
+8. The Box Class, with defaults
+-------------------------------
+Write the Box class. Every Box object must have height, width and breadth.
+
+Write the __init__ method that initializes these values. However, if no value is passed, take the default values to be:
+height, 20
+width, 30
+breadth, 3
+Also write a method volume that returns the volume of the box
+Write only the Box class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+-----------------------------
+PROGRAM:
+------------------------------
+class Box:
+    def __init__(self,height=20,width=30,breadth=3):
+        self.height=height
+        self.width=width
+        self.breadth=breadth
+    def volume(self):
+        return(self.height*self.width*self.breadth)
+
+height = int(input())
+width = int(input())
+breadth = int(input())
+box1 = Box(height,width,breadth)
+print(f"box1 of height: {box1.height}, width: {box1.width} and breadth: {box1.breadth}")
+print(f"box1 has volume: {box1.volume()}")
+box2 = Box()
+print(f"box2 of height: {box2.height}, width: {box2.width} and breadth: {box2.breadth}")
+print(f"box2 has volume: {box2.volume()}")
+
+9. Change Warrior name, by default
+-----------------------------------
+Write a class called Warrior  
+
+1. The __init__ method should initialize the properties name and attack. name is a string; attack is a boolean value which says if current object is attacking or not
+2. Also write a method called updateName .
+- By default the updateName method appends the word updated to the object's name
+- If the parameter passed is upper then the name is changed to uppercase
+- In all other cases, the name is changed to lower case
+Example, if warrior1.name is Apollo then
+warrior1.updateName() will make warrior1.name as Apolloupdated
+Example, if warrior1.name is Ares then
+warrior1.updateName("upper") will make warrior1.name as ARES
+Example, if warrior1.name is POSeIdon then
+warrior1.updateName("other") will make warrior1.name as poseidon
+Write only the Warrior class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+-------------------------------
+PROGRAM:
+---------------------------
+class Warrior:
+    def __init__(self,name,attack):
+        self.name=name
+        self.attack=attack
+        
+    def updateName(self,case="default"):
+        if  case=="upper":
+            self.name=self.name.upper()
+        elif case=="default":    
+            self.name=self.name+"updated"
+        else:
+            self.name=self.name.lower()    
+       
+def bool_convert(line):
+    if(line == "True"):
+        line = True
+    else:
+        line = False
+    return line
+
+name = input()
+attack = bool_convert(input())
+change_to_1 = input()
+change_to_2 = input()
+warrior1 = Warrior(name, attack)
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+warrior1.updateName()
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+warrior1.updateName(change_to_1)
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+warrior1.updateName(change_to_2)
+print(f"warrior1's name is {warrior1.name}. Is attacking? {warrior1.attack}")
+
+10. Calculator, with constants
+Let's revisit our Calculator class. Apart from simple mathematical formulas, we will need to calculate some complex formulas too.
+
+Write a Calculator class that has the following class variables
+
+variable	 value
+ g	        9.8
+ e	       2.71
+ pi	       3.14
+Additionally, each object should have the following methods:
+
+add - accepts as parameters 2 numbers and returns the sum of the 2 numbers
+absolute - accepts as parameters 2 numbers and returns the absolute difference of the 2 numbers
+Write only the Calculator class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+---------------------------
+PROGRAM:
+---------------------------
+import math
+class Calculator:
+    g=9.8
+    e=2.71
+    pi=3.14
+    def add(self,a,g):
+        return(a+g)
+    def absolute(self,b,e):
+        return(math.fabs(b-e))
+
+a = int(input())
+b = int(input())
+calc = Calculator()
+if(a > b):
+    print(f"{a} added to g = {calc.add(a,Calculator.g)}")
+else:
+    print(f"absolute of {b} and e = {calc.absolute(b,Calculator.e)}")
+Calculator.pi = 2.14
+print(f"Now pi is {Calculator.pi}")
+
+11. Warrior class, with limits
+--------------------------
+Write a class called Warrior  
+
+it must have a class variable called LEVEL, initialized to 1
+The __init__ method should initialize the properties name and strength. name is a string; strength is an integer
+When initializing strength we check for LEVEL. strength will be the minimum of the 2 values: the user passed value for strength and the allowedStrength for the LEVEL
+Refer below for the values of allowedStrength:
+
+LEVEL	allowedStrength
+1	      20
+2	      30
+3	      50
+Write only the Warrior class. The rest of the code has been written. Check the remaining code to understand how the input is being taken.
+
+TEST CASES:
+-----------------------------
+PROGRAM:
+---------------------------------
+class Warrior:
+    LEVEL=1
+    def __init__(self,name,strength):
+        self.name=name
+        if(Warrior.LEVEL==1):
+            self.strength=min(strength,20)
+        elif(Warrior.LEVEL==2):
+            self.strength=min(strength,30)
+        elif(Warrior.LEVEL==3):
+            self.strength=min(strength,50)    
+            
+Warrior.LEVEL = int(input())
+name = input()
+strength = int(input())
+warrior1 = Warrior(name, strength)
+print(f"Current level is {Warrior.LEVEL}")
+print(f"warrior1's name is {warrior1.name}. Strength is {warrior1.strength}")
+print("----")
+
 
