@@ -1,5 +1,7 @@
 STACKS:
 -------------------------------
+Implement Stack and its operations:
+
 1. Write a program to implement the following operations in a Stack:
 
 Operations:
@@ -85,7 +87,9 @@ if __name__ == "__main__":
             print(f'isFull:{stack.isFull()}')
         test_cases=test_cases-1 
 
-2. A bracket is considered to be any one of the following characters: (, ), {, }, [, or ].
+2. Balanced Parantheses in Expression:
+
+A bracket is considered to be any one of the following characters: (, ), {, }, [, or ].
 Two brackets are considered to be a matched pair if the an opening bracket (i.e., (, [, or {) occurs to the left of a closing bracket 
 (i.e., ), ], or }) of the exact same type. There are three types of matched pairs of brackets: [], {}, and ().
 A matching pair of brackets is not balanced if the set of brackets it encloses are not matched. For example, 
@@ -148,7 +152,9 @@ class Solution:
     def are_pair(t, e):
         return (t == '(' and e == ')') or (t == '{' and e == '}') or (t == '[' and e == ']')
 
-3. While us humans can understand how to calculate a simple mathematical expression like 2 + 3 * 7 - 9 / 5, 
+3. Infix to Postfix:
+
+While us humans can understand how to calculate a simple mathematical expression like 2 + 3 * 7 - 9 / 5, 
 computers use a special technique to make it easier for them. They convert an infix expression to a postfix expression.
 An infix expression is one in which all the operators (+,-,*,/) appear between operands, just like our usual expressions.
 A postifx expression is one in which all the operands appear first, and the operators appear after the operands.
@@ -211,7 +217,9 @@ for _ in range(testcases):
     print(f'Postfix: {fix.postfix}')
     print('---')
 
-4. Given an array, find the Next greater element for every element.
+4. Next larger element:
+
+Given an array, find the Next greater element for every element.
 The Next greater Element for an element x is the first greater element on the right side of x in array.
 Elements for which no greater element exist, consider next greater element as -1.
 
@@ -239,7 +247,8 @@ class Solution:
 
         return result
 
-5. Evaluate Postfix expression
+5. Evaluate Postfix expression:
+
 Evaluate the value of an arithmetic expression in Reverse Polish Notation.
 Valid operators are+, -, *, /.Each operand may be an integer or another expression.
 
@@ -268,7 +277,9 @@ class Solution:
                 else: stack.append(a // b)
         return stack[0]
 
-6. A water reservation system constructed in a city has several opening and closing gates.
+6. OPening and closing gate Problem:
+
+A water reservation system constructed in a city has several opening and closing gates.
 If any opening gates are not closed with a corresponding closing gate then the water will leak out of the system and there will be a threat to the life of people living in the city. 
 Also, the closing gate cannot exist without the opening gate, so the system head checks the design of the system and he has to ensure that the people are safe in the city.
 Write an algorithm to find whether people are safe or not.
@@ -349,7 +360,9 @@ print(s.isBalanced(str))
 
 QUEUES:
 ---------------------------
-1. Write a program to create a Queue and it's operations which is given below.  Name you class as Queue. 
+1. Implementing a queue and its operations:
+
+Write a program to create a Queue and it's operations which is given below.  Name you class as Queue. 
 In Queue class use Integer array to implement Queue. Check the code for more details.
 
 Operations:
@@ -387,7 +400,9 @@ class Queue:
     def peek(self):
         return(self.data[0])
 
-2. A queue is an abstract data type that maintains the order in which elements were added to it,
+2. Queue is using 2 stacks:
+
+A queue is an abstract data type that maintains the order in which elements were added to it,
 allowing the oldest elements to be removed from the front and new elements to be added to the rear. 
 This is called a First-In-First-Out (FIFO) data structure because the first element added to the queue 
 (i.e., the one that has been waiting the longest) is always the first one to be removed.
@@ -621,7 +636,9 @@ if __name__ == "__main__":
         test_cases=test_cases-1
 
 
-2. Given the pointer to the head node of a linked list, an integer to add to the list and the position at which the integer must be inserted.
+2. Inserting a node:
+
+Given the pointer to the head node of a linked list, an integer to add to the list and the position at which the integer must be inserted.
 Create a new node with the given integer, insert this node at the desired position and return the head node.
 A position of 0 indicates head, a position of 1 indicates one node away from the head and so on.
 
@@ -685,7 +702,9 @@ class Solution:
     
       TREES:
 -----------------------------
-1.Given a binary tree, return the preorder traversal of its nodes’ values.
+
+1.Preorder Traversal:
+Given a binary tree, return the preorder traversal of its nodes’ values.
 
 Example :
 Input :
@@ -718,7 +737,9 @@ class Solution:
             l.extend(Solution().preorderTraversal(A.right))
         return(l)
 
-2. Given a binary tree, return the inorder traversal of its nodes’ values.
+2. Inorder Traversal:
+
+Given a binary tree, return the inorder traversal of its nodes’ values.
 
 Example :
 Input :
@@ -751,7 +772,9 @@ class Solution:
             l.extend(Solution().inorderTraversal(A.right))
         return(l)
 
-3. Given a binary tree, return the postorder traversal of its nodes’ values.
+3.Postoreder traversal:
+
+Given a binary tree, return the postorder traversal of its nodes’ values.
 
 Note: Using recursion is not allowed.
 Example :
@@ -783,7 +806,9 @@ class Solution:
             l.append(A.val)
         return(l)
 
-4. Given a root node reference of a BST and a key, delete the node with the given key in the BST.
+4. Deleting from a BST:
+
+Given a root node reference of a BST and a key, delete the node with the given key in the BST.
 Return the root node reference (possibly updated) of the BST.
 
 Basically, the deletion can be divided into two stages:
